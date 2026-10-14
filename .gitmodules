@@ -1,0 +1,4 @@
+[submodule "extern/qpgen"]
+	path = extern/qpgen
+	url = https://github.com/hyunminkang/qpgen.git
+	branch = dev

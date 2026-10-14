@@ -1,0 +1,145 @@
+# Copyright (c) 2016-2024 Martin Donath <martin.donath@squidfunk.com>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+site_name: qpgen
+site_url: https://hyunminkang.github.io/qpgen/
+
+# Repository
+repo_name: hyunminkang/qpgen
+repo_url: https://github.com/hyunminkang/qpgen
+
+theme: 
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.sections
+    # - announce.dismiss
+    # - content.action.edit
+    # - content.action.view
+    # - content.code.annotate
+    # - content.code.copy
+    # - content.tooltips
+    # - navigation.footer
+    # - navigation.top
+    # - navigation.tracking
+    # - search.highlight
+    # - search.share
+    # - search.suggest
+    # - toc.follow
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Install: install.md
+  - Formats:
+    - Genotypes: formats/genotypes.md
+    - Phenotypes: formats/phenotypes.md
+  - Tools: 
+    - Introduction: tools.md
+    - pair-assoc: tools/pair_assoc.md
+    - pair-prs: tools/pair_prs.md
+    - rect-assoc: tools/rect_assoc.md
+    - region-assoc: tools/region_assoc.md
+    - match-prs-pheno: tools/match_prs_pheno.md
+    - match-prs-pheno methods: tools/match_prs_pheno_methods.md
+    - match-plp-geno: tools/match_plp_geno.md
+    - join-plp-geno: tools/join_plp_geno.md
+    - geno2tsv: tools/geno2tsv.md
+    - pgen2tsv: tools/pgen2tsv.md
+  
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+markdown_extensions:
+  - admonition
+  # - abbr
+  - attr_list
+  # - def_list
+  - footnotes
+  # - md_in_html
+  - toc:
+      permalink: true
+  ## MathJax expression support
+  - pymdownx.arithmatex:
+      generic: true
+  ## Improved detection of Markup 
+  - pymdownx.betterem:
+      smart_enable: all
+  ## Highight text and define sub- and superscript
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  ## Collapsible blocks
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  # - pymdownx.highlight:
+  #     anchor_linenums: true
+  #     line_spans: __span
+  #     pygments_lang_class: true
+  # - pymdownx.inlinehilite
+  # - pymdownx.keys
+  # - pymdownx.magiclink:
+  #     normalize_issue_symbols: true
+  #     repo_url_shorthand: true
+  #     user: squidfunk
+  #     repo: mkdocs-material
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  # - pymdownx.tasklist:
+  #     custom_checkbox: true
