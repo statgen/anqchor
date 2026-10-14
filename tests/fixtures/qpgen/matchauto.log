@@ -1,0 +1,21 @@
+                                              --lambda [0.00],
+   Auto-lambda options (with --mahalanobis) : --auto-lambda [ON],
+                                              --auto-lambda-metric [mean-log-softmax],
+                                              --auto-lambda-min-self [100],
+                                              --auto-lambda-min-best [100]
+NOTICE [2026/10/11 13:20:12] - Tuning lambda on 729 mapped samples by maximizing mean-log-softmax (--auto-lambda)
+NOTICE [2026/10/11 13:20:12] - --auto-lambda will tune on 729 mapped samples
+NOTICE [2026/10/11 13:20:12] -   auto-lambda evaluation 1: lambda = 0.3820, mean-log-softmax = -2.498188, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:12] -   auto-lambda evaluation 2: lambda = 0.6180, mean-log-softmax = -2.531273, self-best = 723 / 729
+NOTICE [2026/10/11 13:20:12] -   auto-lambda evaluation 3: lambda = 0.2361, mean-log-softmax = -2.581665, self-best = 724 / 729
+NOTICE [2026/10/11 13:20:13] -   auto-lambda evaluation 4: lambda = 0.4721, mean-log-softmax = -2.489269, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:13] -   auto-lambda evaluation 5: lambda = 0.5279, mean-log-softmax = -2.496968, self-best = 724 / 729
+NOTICE [2026/10/11 13:20:13] -   auto-lambda evaluation 6: lambda = 0.4377, mean-log-softmax = -2.489483, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:13] -   auto-lambda evaluation 7: lambda = 0.4934, mean-log-softmax = -2.491039, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:13] -   auto-lambda evaluation 8: lambda = 0.4590, mean-log-softmax = -2.488899, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:13] -   auto-lambda evaluation 9: lambda = 0.4508, mean-log-softmax = -2.488948, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:14] -   auto-lambda evaluation 10: lambda = 0.4640, mean-log-softmax = -2.488975, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:14] -   auto-lambda evaluation 11: lambda = 0.4559, mean-log-softmax = -2.488893, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:14] -   auto-lambda evaluation 12: lambda = 0.4540, mean-log-softmax = -2.488904, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:14] -   auto-lambda evaluation 13: lambda = 0.4549, mean-log-softmax = -2.488897, self-best = 725 / 729
+NOTICE [2026/10/11 13:20:14] - Using automatically tuned lambda = 0.4549 after 13 evaluations; 725 / 729 mapped samples (99.5%) rank their own PRS first

@@ -1,0 +1,69 @@
+# anqchor cis: replication of known cis-eQTLs for ONE set of inputs.
+#
+# Each cis run evaluates one set of inputs (genotypes, phenotypes, covariates, phenotype
+# transform, reference).
+# To compare analysis setups, run 'anqchor cis run' once per setup (into separate
+# directories; the runs are independent and can run in parallel) and compare them with
+# 'anqchor cis compare RUN_DIR... --out DIR'.
+#
+# This file is the all-covariate run of the MAGE example (chr21/22 compact data in data/).
+# It is equivalent to the flags-only command
+#
+#   anqchor cis run --geno-list examples/mage/data/geno/mage.pgen_list.tsv \
+#       --pheno examples/mage/data/pheno/mage_expr.chr21_22.regenie.tsv.gz \
+#       --cov examples/mage/data/pheno/mage_covariates.regenie.tsv.gz \
+#       --pairs examples/mage/data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz \
+#       --out results/cis/peer60
+#
+# except for the dataset and reference names (rnaseq and gtex_lcl here, dataset and
+# reference with flags). Paths are relative to this file. From the repository root:
+#
+#   anqchor cis run --config examples/mage/cis.yaml --out results/cis_config
+#
+version: 1
+project: mage_cis
+out_dir: ../../results/cis_config      # overridden by --out
+
+genotypes:
+  # qpgen pgen list (CHROM BEG END PREFIX): 729 individuals, 256,645 variants (MAF >= 5%).
+  pgen_list: data/geno/mage.pgen_list.tsv
+
+references:
+  gtex_lcl:
+    kind: cis
+    # 367 GTEx v10 LCL eGenes on chr21/22 with their sentinel variant (columns trait variant
+    # beta se pval), from donors independent of MAGE.
+    pairs: data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz
+    columns: {trait: trait, variant: variant, beta: beta, se: se, pval: pval}
+
+datasets:
+  rnaseq:
+    omics: rnaseq
+    # 729 samples x 367 genes, regenie layout (FID IID gene...), IDs 'ENSG...:GENE'.
+    pheno: data/pheno/mage_expr.chr21_22.regenie.tsv.gz
+    pheno_format: regenie
+    # Gene TSS loci (BED, same IDs). Not needed by the default pair engine; the rect engine
+    # uses them to split its local controls into same- and cross-chromosome cells.
+    trait_annot: data/pheno/mage_genes.chr21_22.bed
+    # sex (XX/XY, categorical: passed to qpgen as text), PC1-5, PEER1-60: 66 covariates.
+    cov: data/pheno/mage_covariates.regenie.tsv.gz
+    cov_format: regenie
+    trait_id_rule: as_is               # reference and expression trait IDs are identical
+
+pipelines:
+  match: {enabled: false}              # this file is for the cis analysis only
+  trans: {enabled: false}
+  cis:
+    reference: gtex_lcl
+    assoc_engine: pair                 # pair (pair-assoc) | rect (rect-assoc over variants x traits)
+    # One strategy = this run's covariates. 'cov: default' uses every column of the
+    # dataset's cov file (same as omitting --cov-include). For a subset, write e.g.
+    #   cov: {include: [sex, PC1-5, PEER1-10]}      (= --cov-include sex,PC1-5,PEER1-10)
+    # and for no covariates 'cov: null' (= omitting --cov).
+    strategies:
+      - {name: default, cov: default}
+    # Phenotype transform of this run: false = the expression as given; true = rank-based
+    # inverse normal transform after covariate adjustment (= --rint). One transform per run.
+    rint: false
+    levels: {nominal: 0.05, fdr: 0.05, bonferroni: true, strict: 1.0e-5}
+    max_unresolved_fraction: 0.2

@@ -1,0 +1,285 @@
+{
+  "schema_version": 2,
+  "about": "Acceptance numbers for the in-repo MAGE chr21/22 example (examples/mage/data: 729 samples x 256,645 variants, 367 genes, 66 covariates, 367 reference cis-eQTL pairs: GTEx v10 EBV-transformed lymphocyte eGenes with their sentinel variant, independent of MAGE), measured on 2026-10-12 with qpgentools 0.2.0. Update this file, not the test, when qpgen or the example data change. Replication counts compare with cis.tolerance / trans.known_tolerance (absolute), lambda_GC values with trans.lambda_gc_tolerance; everything else is exact.",
+  "prepare": {
+    "n_geno_samples": 729,
+    "chrom_style": "plain",
+    "n_pheno_samples": 729,
+    "n_samples_mapped": 729,
+    "n_pheno_unmapped": 0,
+    "n_traits": 367,
+    "n_cov_columns": 66,
+    "categorical": {
+      "sex": {
+        "XX": 1,
+        "XY": 2
+      }
+    },
+    "reference": {
+      "n_pairs": 367,
+      "n_traits": 367,
+      "n_variants": 346,
+      "n_present": 346,
+      "n_absent": 0
+    },
+    "mapping": {
+      "n_mapped_traits": 367,
+      "n_pairs_present": 367,
+      "n_variants_present": 346
+    }
+  },
+  "match": {
+    "prs_shape": [
+      729,
+      367
+    ],
+    "n_match_all_rows": 729,
+    "status_counts": {
+      "SELF_BEST": 713,
+      "SELF_LENIENT": 14,
+      "UNCLEAR": 2
+    },
+    "group_counts": {
+      "PASS": 713,
+      "WARN": 16,
+      "FAIL": 0,
+      "NO_TEST": 0
+    },
+    "verdict": "727 of 729 mapped samples confirmed (14 only leniently); 2 unclear",
+    "unclear": {
+      "pheno_id": "NA11919",
+      "best_id": "HG00237",
+      "min_rank_self": 200,
+      "about": "NA11919's own genotype is at background level (Z 0.41, rank 253 of 729); its best candidate HG00237 leads the next by only 0.32 (< z_diff 2), so no new ID is named and no relabel is proposed"
+    },
+    "mahalanobis_auto_lambda": {
+      "status_counts": {
+        "SELF_BEST": 724,
+        "SELF_LENIENT": 4,
+        "UNCLEAR": 1
+      },
+      "unclear": [
+        "NA11919"
+      ],
+      "lambda": 0.58,
+      "lambda_tolerance": 0.03
+    }
+  },
+  "cis": {
+    "about": "One 'anqchor cis run' per covariate set (flags only, pair engine; phenotypes as given), plus the all-covariate run with --rint (peer60_rint), compared with 'anqchor cis compare'. The reference pairs come from GTEx donors, independent of the MAGE samples, so about 4-8% of them have the opposite sign here.",
+    "tolerance": 2,
+    "status": {
+      "n_pairs": 367,
+      "n_tested": 367,
+      "n_variant_absent": 0,
+      "n_not_tested": 0
+    },
+    "runs": {
+      "nocov": {
+        "cov_include": null,
+        "n_cov": 0,
+        "rint": false,
+        "counts": {
+          "sign": 339,
+          "nominal": 273,
+          "fdr": 269,
+          "bonferroni": 196,
+          "strict": 178
+        }
+      },
+      "basic": {
+        "cov_include": "sex,PC1-5",
+        "n_cov": 6,
+        "rint": false,
+        "counts": {
+          "sign": 343,
+          "nominal": 266,
+          "fdr": 258,
+          "bonferroni": 189,
+          "strict": 162
+        }
+      },
+      "peer10": {
+        "cov_include": "sex,PC1-5,PEER1-10",
+        "n_cov": 16,
+        "rint": false,
+        "counts": {
+          "sign": 352,
+          "nominal": 304,
+          "fdr": 300,
+          "bonferroni": 246,
+          "strict": 231
+        }
+      },
+      "peer60": {
+        "cov_include": "all",
+        "n_cov": 66,
+        "rint": false,
+        "counts": {
+          "sign": 353,
+          "nominal": 318,
+          "fdr": 316,
+          "bonferroni": 269,
+          "strict": 251
+        }
+      },
+      "peer60_rint": {
+        "cov_include": "all",
+        "n_cov": 66,
+        "rint": true,
+        "counts": {
+          "sign": 353,
+          "nominal": 319,
+          "fdr": 317,
+          "bonferroni": 268,
+          "strict": 251
+        }
+      }
+    },
+    "single_run_recommended": {
+      "peer60": "peer60"
+    },
+    "rect_lambda_gc_control": {
+      "about": "rect engine: lambda_GC of the local (non-reference) cells",
+      "nocov_min": 1.5,
+      "covariates_bounds": [
+        0.95,
+        1.1
+      ]
+    },
+    "subset": {
+      "about": "the first 300 reference pairs, all covariates; compared with the full peer60 and nocov runs",
+      "n_pairs": 300,
+      "n_rep_strict_raw": 201,
+      "nocov_strict_common_raw": 141
+    },
+    "rel_neff": {
+      "about": "compare of the five runs: (mean z^2 - 1) / (nocov mean z^2 - 1) over the common pairs, z = beta / se",
+      "tolerance": 0.02,
+      "nocov": 1.0,
+      "basic": 0.829,
+      "peer10": 1.577,
+      "peer60": 2.27,
+      "peer60_rint": 2.097
+    }
+  },
+  "trans": {
+    "about": "one flag-only 'anqchor trans run' per setup over the GTEx reference's 346 variants x 367 genes (traits: reference, trait_chroms: genotyped): nocov, basic (sex, PC1-5), peer10 (+ PEER1-10), peer60 (all 66 covariates), peer60_rint (--rint). cis: [tested, same sign, p < 0.05, p < 1e-5]; lambda_gc and observed counts over the cross-chromosome cells (none left out: the reference has no trans pairs); hotspots: 1-Mb bins with >= 5 genes at p < 1e-5, and per k = 1, 2, 3, 5, 10, 20 at Bonferroni (0.05 / 120,796 trans cells).",
+    "n_variants": 346,
+    "n_traits": 367,
+    "cells": {
+      "cis": 6186,
+      "cross_chrom": 53508,
+      "same_chrom_distal": 67288,
+      "no_locus": 0
+    },
+    "known_tolerance": 2,
+    "lambda_gc_tolerance": 0.02,
+    "covariate_lambda_gc_bounds": [
+      0.95,
+      1.1
+    ],
+    "runs": {
+      "nocov": {
+        "cis": [
+          367,
+          339,
+          273,
+          178
+        ],
+        "lambda_gc": 1.744,
+        "observed_p_lt_1e-3": 1528,
+        "observed_p_lt_1e-5": 445,
+        "hotspots_p1e-5_k5": 37,
+        "hotspots_bonferroni": [
+          41,
+          37,
+          35,
+          33,
+          15,
+          2
+        ]
+      },
+      "basic": {
+        "cis": [
+          367,
+          343,
+          266,
+          162
+        ],
+        "lambda_gc": 1.021,
+        "observed_p_lt_1e-3": 46,
+        "observed_p_lt_1e-5": 1,
+        "hotspots_p1e-5_k5": 0,
+        "hotspots_bonferroni": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "peer10": {
+        "cis": [
+          367,
+          352,
+          304,
+          231
+        ],
+        "lambda_gc": 1.004,
+        "observed_p_lt_1e-3": 63,
+        "observed_p_lt_1e-5": 1,
+        "hotspots_p1e-5_k5": 0,
+        "hotspots_bonferroni": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "peer60": {
+        "cis": [
+          367,
+          353,
+          318,
+          251
+        ],
+        "lambda_gc": 1.002,
+        "observed_p_lt_1e-3": 57,
+        "observed_p_lt_1e-5": 0,
+        "hotspots_p1e-5_k5": 0,
+        "hotspots_bonferroni": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "peer60_rint": {
+        "cis": [
+          367,
+          353,
+          319,
+          251
+        ],
+        "lambda_gc": 1.001,
+        "observed_p_lt_1e-3": 62,
+        "observed_p_lt_1e-5": 0,
+        "hotspots_p1e-5_k5": 0,
+        "hotspots_bonferroni": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  }
+}

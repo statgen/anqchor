@@ -1,0 +1,79 @@
+# anqchor trans: evaluation of ONE set of inputs over a variant x gene rectangle.
+#
+# A trans run tests every variant of the reference pairs against every gene of the
+# reference pairs (here 346 variants x 367 genes on chr21/22) and reports
+#   1. the reference pairs replicated, cis and trans separately,
+#   2. hotspots: 1-Mb bins of variants with trans signals for many genes,
+#   3. inflation of the cross-chromosome p-values (lambda_GC, QQ plot).
+# To compare covariate sets or a phenotype transform, make one 'trans run' per setup, each
+# into its own --out directory, then 'anqchor trans compare RUN_DIR... --out DIR' writes the
+# comparison and its report/trans.html ('trans report --out DIR' re-renders it).
+#
+# This file is the all-covariate run of the MAGE example (compact data in data/). It is
+# equivalent to the flags-only command
+#
+#   anqchor trans run --geno-list examples/mage/data/geno/mage.pgen_list.tsv \
+#       --pheno examples/mage/data/pheno/mage_expr.chr21_22.regenie.tsv.gz \
+#       --trait-annot examples/mage/data/pheno/mage_genes.chr21_22.bed \
+#       --cov examples/mage/data/pheno/mage_covariates.regenie.tsv.gz \
+#       --pairs examples/mage/data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz \
+#       --out results/trans/peer60
+#
+# except for the dataset and reference names (rnaseq and gtex_lcl here, dataset and
+# reference with flags) and the strict level (p < 1e-8), which has no flag. Paths are
+# relative to this file. From the repository root (about 8 s):
+#
+#   anqchor trans run --config examples/mage/trans.yaml --out results/trans_config
+#
+# 'trans run' stops at the summary tables; the run directory can be given to
+# 'trans compare' with flags-only runs, and 'trans report --out DIR' renders one run's page.
+# Reproduce the run exactly: --config results/trans_config/anqchor.resolved.yaml --out NEW_DIR
+#
+# Walk-through: docs/use-cases/trans-strategies.md.
+version: 1
+project: mage_trans
+out_dir: ../../results/trans_config     # overridden by --out
+
+genotypes:
+  # 729 individuals x 256,645 variants (MAF >= 5%) on chr21/22; prefixes are relative.
+  pgen_list: data/geno/mage.pgen_list.tsv
+
+references:
+  gtex_lcl:
+    kind: cis
+    # GTEx v10 LCL eGenes on chr21/22 (q <= 0.05), one sentinel variant each: 367 pairs,
+    # 346 distinct variants, all cis. Columns trait variant beta se pval.
+    pairs: data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz
+
+datasets:
+  rnaseq:
+    omics: rnaseq
+    pheno: data/pheno/mage_expr.chr21_22.regenie.tsv.gz       # 729 samples x 367 genes
+    pheno_format: regenie
+    trait_annot: data/pheno/mage_genes.chr21_22.bed           # gene TSS loci: cis or trans
+    cov: data/pheno/mage_covariates.regenie.tsv.gz            # sex (XX/XY), PC1-5, PEER1-60
+    cov_format: regenie
+
+pipelines:
+  match: {enabled: false}              # this file is for the trans analysis only
+  cis: {enabled: false}
+  trans:
+    reference: gtex_lcl
+    variants: reference                # the reference's variants present in the genotypes
+    traits: reference                  # the reference's genes
+    trait_chroms: genotyped            # keep genes whose locus is on chr21/22
+    known_pairs: true                  # replicate the reference pairs
+    # One strategy = this run's covariates. 'cov: default' uses every column of the
+    # dataset's cov file (same as omitting --cov-include). For a subset write e.g.
+    #   cov: {include: [sex, PC1-5, PEER1-10]}      (= --cov-include sex,PC1-5,PEER1-10)
+    # and for no covariates 'cov: null' (= omitting --cov).
+    strategies:
+      - {name: default, cov: default}
+    # Phenotype transform: false = the expression as given; true = rank-based inverse
+    # normal transform after covariate adjustment (= --rint). One transform per run.
+    rint: false
+    cis_window_bp: 1000000             # same chromosome within 1 Mb of the TSS = cis; else trans
+    min_maf: 0.01
+    levels: {nominal: 1.0e-5, strict: 1.0e-8, bonferroni: true}   # trans signal thresholds
+    hotspot_bin_bp: 1000000            # 1-Mb bins of variants thin the trans signals
+    hotspot_min_traits: 5              # genes a bin needs to be a hotspot (the report can change it)

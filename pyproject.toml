@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling>=1.21"]
+build-backend = "hatchling.build"
+
+[project]
+name = "anqchor"
+version = "0.1.0.dev0"
+description = "Genetically anchored quality control for large-scale multi-omics xQTL analysis"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Hyun Min Kang", email = "hmkang@umich.edu" },
+    { name = "Jacob Blamer" },
+    { name = "Michael Sweeney" },
+]
+keywords = ["xQTL", "eQTL", "quality control", "multi-omics", "sample identity", "genetics"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = [
+    "typer>=0.12",
+    "pydantic>=2.6",
+    "pyyaml>=6.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "plotly>=5.18",
+    "jinja2>=3.1",
+]
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs>=1.6",
+    "mkdocs-material>=9.5",
+    "pymdown-extensions>=10.7",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "mypy>=1.10",
+    "types-PyYAML>=6.0",
+]
+
+[project.scripts]
+anqchor = "anqchor.cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/hyunminkang/anqchor"
+Documentation = "https://hyunminkang.github.io/anqchor/"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/anqchor"]
+
+[tool.hatch.build.targets.sdist]
+exclude = ["/tmp", "/extern", "/site"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "integration: runs qpgentools on the in-repo MAGE chr21/22 example (examples/mage/data); skipped when no qpgentools binary is found",
+]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+extend-exclude = ["tmp", "extern"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501", "B008", "RUF001", "RUF002", "RUF003", "SIM115", "N817"]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src/anqchor"]
+ignore_missing_imports = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["anqchor.config.*", "anqchor.engine.*", "anqchor.qpgen.*"]
+strict = true

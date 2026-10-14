@@ -1,0 +1,56 @@
+# Sample identity matching on the compact MAGE chr21/22 example.
+#
+# Question: is every expression sample paired with the right genotype?
+#
+# The usual way to run it is with flags only (see docs/use-cases/identity-matching.md):
+#
+#   anqchor match all --geno-list examples/mage/data/geno/mage.pgen_list.tsv \
+#       --pheno examples/mage/data/pheno/mage_expr.chr21_22.regenie.tsv.gz \
+#       --cov examples/mage/data/pheno/mage_covariates.regenie.tsv.gz \
+#       --pairs examples/mage/data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz \
+#       --out results/match
+#
+# This file holds the same inputs and settings, with comments; it differs only in the
+# dataset and reference names (rnaseq and gtex_lcl here, dataset and reference with flags).
+# From the repository root:
+#
+#   anqchor match run --config examples/mage/match.yaml --out results/match_cfg
+#   anqchor match report --out results/match_cfg
+#
+# ('anqchor match all' does both.) Command-line flags override the values below, e.g.
+# '--z-diff 3'. Paths are relative to this file.
+version: 1
+project: mage_match
+
+genotypes:
+  # qpgen pgen list (CHROM BEG END PREFIX): 729 individuals x 256,645 variants (MAF >= 5%)
+  # on chromosomes 21 and 22. Relative prefixes are found next to the list file.
+  pgen_list: data/geno/mage.pgen_list.tsv
+
+references:
+  gtex_lcl:
+    # 367 GTEx v10 LCL eGenes with their sentinel variant (trait, variant, beta, se, pval),
+    # from donors independent of MAGE. The betas turn each individual's genotypes into a
+    # predicted expression value (PRS) per gene.
+    pairs: data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz
+
+datasets:
+  rnaseq:
+    omics: rnaseq
+    # 729 samples x 367 genes, regenie layout (FID IID gene...). Sample IDs equal the
+    # genotype IDs, so no sample_map is needed.
+    pheno: data/pheno/mage_expr.chr21_22.regenie.tsv.gz
+    # sex (XX/XY, categorical: passed to qpgen as text), PC1-5, PEER1-60; regressed out
+    # of the expression before matching (use_cov below).
+    cov: data/pheno/mage_covariates.regenie.tsv.gz
+
+pipelines:
+  match:
+    use_cov: true          # adjust expression for the covariates first
+    rint: true             # rank-based inverse normal transform after adjustment
+    mahalanobis: false     # score genes as independent (fast); true whitens correlated genes
+    z_threshold: 1.96      # own genotype with Z above this, but not the best: SELF_LENIENT
+    z_diff: 2.0            # best genotype ahead of the second by this much: a clear new match
+  # This file describes the identity check only; cis and trans have their own files.
+  cis: {enabled: false}
+  trans: {enabled: false}
