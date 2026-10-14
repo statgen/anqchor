@@ -79,7 +79,6 @@ indicator columns. For categories coded as numbers (a batch number), add
 ## Documentation
 
 <https://hyunminkang.github.io/anqchor/> (sources in `docs/`; `uv sync --extra docs && uv run mkdocs serve`).
-Design record: [DESIGN.md](DESIGN.md).
 
 ## License
 
