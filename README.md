@@ -22,6 +22,7 @@ cd anqchor
 uv sync                       # or: pip install -e .
 uv run anqchor qpgen build    # builds extern/qpgen/bin/qpgentools (macOS: brew install libomp llvm)
 uv run anqchor qpgen check
+source .venv/bin/activate
 ```
 
 Requires Python ≥ 3.10, GNU make, a C++14 compiler with OpenMP and cmake (for qpgen). The
