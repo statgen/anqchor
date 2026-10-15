@@ -1,0 +1,1941 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Genetically anchored quality control for large-scale multi-omics xQTL analysis">
+      
+      
+      
+        <link rel="canonical" href="https://hyunminkang.github.io/anqchor/reference/qpgen/">
+      
+      
+        <link rel="prev" href="../outputs/">
+      
+      
+        <link rel="next" href="../python-api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>qpgen integration - anqchor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qpgen-integration" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="anqchor" class="md-header__button md-logo" aria-label="anqchor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            anqchor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              qpgen integration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/statgen/anqchor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    statgen/anqchor
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../use-cases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Use cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pipelines/match/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Pipelines
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cli/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../development/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="anqchor" class="md-nav__button md-logo" aria-label="anqchor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    anqchor
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/statgen/anqchor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    statgen/anqchor
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../use-cases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use cases
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Use cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/example-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/identity-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/cis-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparing cis runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/trans-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trans evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/inputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/running/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipelines
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipelines/match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    match (sample identity)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipelines/cis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cis (replication of known pairs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipelines/trans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trans (replication, hotspots, inflation)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    qpgen integration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    qpgen integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-requirement-qpgen-020-or-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version requirement: qpgen 0.2.0 or later
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version requirement: qpgen 0.2.0 or later">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-changed-in-qpgen-020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What changed in qpgen 0.2.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build and discovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-and-flags-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands and flags used
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands and flags used">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorical-covariates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorical covariates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-statistical-model-of-the-association-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The statistical model of the association tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defences-kept-for-older-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defences kept for older builds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-qpgen-behaviours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known qpgen behaviours
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#version-requirement-qpgen-020-or-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version requirement: qpgen 0.2.0 or later
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Version requirement: qpgen 0.2.0 or later">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-changed-in-qpgen-020" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What changed in qpgen 0.2.0
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build and discovery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-and-flags-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands and flags used
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands and flags used">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categorical-covariates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorical covariates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-statistical-model-of-the-association-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The statistical model of the association tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defences-kept-for-older-builds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defences kept for older builds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-qpgen-behaviours" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known qpgen behaviours
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="qpgen-integration">qpgen integration<a class="headerlink" href="#qpgen-integration" title="Permanent link">&para;</a></h1>
+<p>anqchor does no association statistics itself: <a href="https://github.com/hyunminkang/qpgen">qpgen</a>
+(<code>qpgentools</code>) computes polygenic scores, identity scores and association tests. anqchor
+prepares the inputs, builds the command lines, runs them as steps and reads the outputs. The
+qpgen flag names appear in one module, <code>anqchor.qpgen.commands</code>; the output layouts in one
+module, <code>anqchor.qpgen.outputs</code>.</p>
+<h2 id="version-requirement-qpgen-020-or-later">Version requirement: qpgen 0.2.0 or later<a class="headerlink" href="#version-requirement-qpgen-020-or-later" title="Permanent link">&para;</a></h2>
+<p>qpgen is vendored as the git submodule <code>extern/qpgen</code> (branch <code>dev</code>), pinned at commit
+<code>5b811e2</code>, which reports version 0.2.0:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gp">$ </span>extern/qpgen/bin/qpgentools<span class="w"> </span>--version
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="go">qpgentools 0.2.0 (git 5b811e2)</span>
+</code></pre></div>
+<p>Categorical covariates (<code>--cat-cov-names</code>, below) need a build from commit <code>5b811e2</code> or
+later: <code>cb97eb0</code> added them to <code>pair-assoc</code>, <code>rect-assoc</code> and <code>region-assoc</code>, and <code>5b811e2</code>
+to <code>match-prs-pheno</code>. Both report version 0.2.0, as does the earlier <code>76f2fd1</code>, so the
+version string alone does not tell them apart; an older build does not accept
+<code>--cat-cov-names</code>. <code>anqchor qpgen check</code> prints the commit of the checkout and fails with
+<code>missing options: ...</code> when <code>match-prs-pheno</code>, <code>pair-assoc</code> or <code>rect-assoc</code> lacks
+<code>--cat-cov-names</code> or <code>--max-cat-levels</code>.</p>
+<p>Every qpgen command also logs this line first. Builds before 0.2.0 have no <code>--version</code>.</p>
+<p>anqchor itself does not read the version: <code>anqchor qpgen check</code> verifies the subcommands and
+prints the binary's sha256 and the git commit of the checkout it sits in, and <code>run.json</code>
+records the same. Check <code>qpgentools --version</code> yourself when you use a binary built
+elsewhere.</p>
+<h3 id="what-changed-in-qpgen-020">What changed in qpgen 0.2.0<a class="headerlink" href="#what-changed-in-qpgen-020" title="Permanent link">&para;</a></h3>
+<p>qpgen 0.2.0 collects the fixes made while anqchor was built and tested on the MAGE example.
+The ones that change anqchor's results:</p>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Effect on older builds</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pair-assoc</code> adjusts the <strong>genotypes</strong> for the covariates as well as the phenotype (Frisch-Waugh-Lovell), like <code>rect-assoc</code></td>
+<td>with covariates, <code>pair-assoc</code> effects and −log10 p were attenuated and differed from <code>rect-assoc</code></td>
+</tr>
+<tr>
+<td>With covariates, <code>pair-assoc</code>, <code>rect-assoc</code> and <code>region-assoc</code> use <strong>df = N − 2 − k</strong> (k = rank of the covariates)</td>
+<td><code>SE</code> too small by √((N−2−k)/(N−2)); −log10 p optimistic with many covariates</td>
+</tr>
+<tr>
+<td><code>pair-assoc</code> always fits an intercept; <code>rect-assoc</code> centres phenotypes without covariates</td>
+<td>without covariates, <code>SE</code> was inflated for phenotypes with a large mean</td>
+</tr>
+<tr>
+<td>Non-numeric values (such as <code>XX</code>/<code>XY</code>) are an error in every phenotype and covariate loader, except in covariates named with <code>--cat-cov-names</code></td>
+<td>they were read as 0 without a warning</td>
+</tr>
+<tr>
+<td><code>pair-assoc</code> reads <code>NA</code> as missing and drops that sample from the trait's tests (<code>--missing-str</code>); missing genotypes are dropped per variant (complete case)</td>
+<td><code>NA</code> was read as 0; missing genotypes were mean-imputed</td>
+</tr>
+<tr>
+<td>Samples are keyed by IID in every loader, and duplicate IIDs are an error</td>
+<td>a <code>.psam</code> with real family IDs (FID ≠ IID) could misalign genotypes and phenotypes silently</td>
+</tr>
+<tr>
+<td>Input tables are tab-delimited by default (<code>--space-delim</code> for single-space files)</td>
+<td>fields were split on any run of whitespace, so IDs with spaces were cut</td>
+</tr>
+<tr>
+<td>Rank of the covariates computed on scaled columns; constant, duplicate and near-duplicate covariates leave <code>BETA</code> unchanged (with a warning)</td>
+<td>near-duplicate covariates could shift <code>BETA</code> substantially without a warning</td>
+</tr>
+<tr>
+<td><code>pair-assoc</code> no longer requires lexicographic sample order, and stops when no samples overlap</td>
+<td>it aborted, or ran on with zero samples</td>
+</tr>
+<tr>
+<td><code>pair-assoc</code> header starts with <code>TRAIT</code> (was <code>#TRAIT</code>)</td>
+<td>anqchor accepts both</td>
+</tr>
+<tr>
+<td><code>match-prs-pheno</code> warns when fewer than 10 traits have a non-zero weight</td>
+<td>no warning</td>
+</tr>
+<tr>
+<td><code>qpgentools --version</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td>Categorical covariates with <code>--cat-cov-names</code> (REGENIE <code>--catCovarList</code>) in <code>match-prs-pheno</code>, <code>pair-assoc</code>, <code>rect-assoc</code> and <code>region-assoc</code> (commits <code>cb97eb0</code>, <code>5b811e2</code>)</td>
+<td>text covariates such as <code>XX</code>/<code>XY</code> had to be recoded to numbers first</td>
+</tr>
+</tbody>
+</table>
+<p>anqchor always writes tab-separated, regenie-layout matrices for qpgen (numeric except for
+categorical covariates, which qpgen encodes) and keys samples by IID, so it does not depend on the delimiter and FID changes. The covariate
+adjustment, degrees of freedom and missing-value changes do change the numbers: use 0.2.0.</p>
+<h2 id="build-and-discovery">Build and discovery<a class="headerlink" href="#build-and-discovery" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>anqchor<span class="w"> </span>qpgen<span class="w"> </span>build<span class="w"> </span>-j<span class="w"> </span><span class="m">8</span><span class="w">      </span><span class="c1"># htslib -&gt; qgenlib -&gt; qpgen; produces extern/qpgen/bin/qpgentools</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>anqchor<span class="w"> </span>qpgen<span class="w"> </span>check<span class="w">           </span><span class="c1"># path, sha256, git commit, required subcommands</span>
+</code></pre></div>
+<p>Discovery order: <code>--qpgen</code> / <code>qpgen.binary</code> → <code>$ANQCHOR_QPGEN</code> → <code>qpgentools</code> on <code>PATH</code> →
+<code>extern/qpgen/bin/qpgentools</code>. An explicit path or <code>$ANQCHOR_QPGEN</code> that does not name an
+executable is an error (exit code 4).</p>
+<h2 id="commands-and-flags-used">Commands and flags used<a class="headerlink" href="#commands-and-flags-used" title="Permanent link">&para;</a></h2>
+<p>All genotype input is the prepared 4-column list with absolute prefixes,
+<code>--pgen-list prepare/genotypes/pgen_list.tsv</code>. All phenotype and covariate input is in
+regenie layout, so <code>--pheno-format</code> and <code>--cov-format</code> are never needed.</p>
+<h3 id="categorical-covariates">Categorical covariates<a class="headerlink" href="#categorical-covariates" title="Permanent link">&para;</a></h3>
+<p>Covariate files keep categorical covariates as text (<code>sex</code> is <code>XX</code>/<code>XY</code>). Every qpgen command
+that takes <code>--cov</code> also gets <code>--cat-cov-names</code> with the categorical covariates in that file:
+the names given with anqchor's <code>--cat-cov-names</code> (config <code>datasets.&lt;ds&gt;.cov_categorical</code>) plus
+every column with a non-numeric value, detected when the Makefile is built. A command whose
+covariates include no categorical one gets no <code>--cat-cov-names</code> (<code>--cov-include PC1-5,PEER1-10</code>).
+qpgen follows REGENIE: a covariate with L levels becomes L − 1 indicator columns, the first
+level in sorted order is the reference, and <code>--max-cat-levels</code> (default 10) caps the levels. anqchor
+checks the level counts itself (see <a href="../../user-guide/inputs/#covariates">covariates</a>), so when
+a categorical covariate a command uses has N &gt; 10 levels it adds <code>--max-cat-levels N</code>; with
+10 or fewer levels the flag is omitted. The log shows the expansion:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>NOTICE [...] - Categorical covariate sex: 2 levels (XX, XY); reference XX; 1 indicator columns
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>NOTICE [...] - Covariate matrix has 6 columns after expanding categorical covariates
+</code></pre></div>
+<p>The results equal those of the earlier anqchor-side numeric recoding (<code>sex</code> → &frac12;): the
+covariates span the same column space.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Step</th>
+<th>Flags anqchor passes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pair-prs</code></td>
+<td><code>prs.&lt;ref&gt;</code></td>
+<td><code>--pgen-list</code>, <code>--pairs prepare/references/&lt;ref&gt;/pairs.tsv.gz</code>, <code>--out prs/&lt;ref&gt;/prs</code>, <code>--sample</code> (with <code>prs_samples</code>)</td>
+</tr>
+<tr>
+<td><code>match-prs-pheno</code></td>
+<td><code>match.&lt;ds&gt;.qpgen</code></td>
+<td><code>--prs</code>, <code>--pheno</code>, <code>--out</code>, <code>--cov</code> and <code>--cat-cov-names</code> (with <code>use_cov</code>), <code>--sample-tsv</code> (with a <code>sample_map</code>), <code>--trait-tsv</code> (when trait IDs differ), <code>--missing-str</code> (non-default), <code>--rint</code>, <code>--mahalanobis</code> + <code>--auto-lambda</code> [<code>--auto-lambda-min-self/-min-best</code>] or <code>--lambda</code>, <code>--min-weight</code> (non-zero), <code>--z-threshold</code>, <code>--z-diff</code>, <code>--threads</code></td>
+</tr>
+<tr>
+<td><code>pair-assoc</code></td>
+<td><code>cis.&lt;ds&gt;.&lt;s&gt;.assoc</code></td>
+<td><code>--pgen-list</code>, <code>--pheno</code>, <code>--pairs prepare/datasets/&lt;ds&gt;/ref.&lt;ref&gt;/pairs.tsv.gz</code>, <code>--out &lt;file&gt;.tsv.gz</code>, <code>--cov</code> and <code>--cat-cov-names</code> (with covariates), <code>--skip-rint</code> (unless <code>--rint</code>)</td>
+</tr>
+<tr>
+<td><code>rect-assoc</code></td>
+<td><code>cis.&lt;ds&gt;.&lt;s&gt;.rect.&lt;t&gt;</code></td>
+<td><code>--pgen-list</code>, <code>--pheno</code>, <code>--var-list</code>, <code>--pheno-list</code>, <code>--cov</code>, <code>--cat-cov-names</code>, <code>--rint-after-adj</code> (with <code>--rint</code>), <code>--out</code></td>
+</tr>
+<tr>
+<td><code>rect-assoc</code></td>
+<td><code>trans.&lt;ds&gt;.&lt;s&gt;.rect.&lt;t&gt;</code></td>
+<td>as above plus <code>--min-maf</code>, <code>--min-mac</code>, <code>--max-chunk-vars</code>; <code>--pheno-list</code> unless <code>traits: all</code> and <code>trait_chroms: all</code></td>
+</tr>
+</tbody>
+</table>
+<p>For example, the association step of <code>anqchor cis run ... --cov-include sex,PC1-5</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>qpgentools pair-assoc --pgen-list prepare/genotypes/pgen_list.tsv \
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  --pheno prepare/datasets/dataset/pheno.regenie.tsv.gz \
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  --pairs prepare/datasets/dataset/ref.reference/pairs.tsv.gz \
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  --out cis/dataset/strategies/default/pair_assoc.tsv.gz \
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  --cov cis/dataset/strategies/default/cov.regenie.tsv.gz --cat-cov-names sex
+</code></pre></div>
+<p>and the identity step of <code>anqchor match all</code> with <code>--cov</code> (the <code>--out</code> prefix is a
+temporary directory inside <code>match/dataset/</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>qpgentools match-prs-pheno --prs prs/reference/prs.prs.tsv.gz \
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  --pheno prepare/datasets/dataset/pheno.regenie.tsv.gz --out match/dataset/.qpgen.../qpgen \
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  --cov prepare/datasets/dataset/cov.regenie.tsv.gz --cat-cov-names sex \
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  --rint --z-threshold 1.96 --z-diff 2 --threads 1
+</code></pre></div>
+<p>Every step's exact command is in <code>steps/&lt;step&gt;.json</code> (<code>commands</code>) and its output in
+<code>logs/&lt;step&gt;.log</code>. <code>match-prs-pheno</code> runs into a temporary prefix and its outputs are moved
+into place, so a failed run leaves no partial files.</p>
+<h2 id="the-statistical-model-of-the-association-tools">The statistical model of the association tools<a class="headerlink" href="#the-statistical-model-of-the-association-tools" title="Permanent link">&para;</a></h2>
+<p>For each (variant, trait) with k covariates C (plus an intercept):</p>
+<ol>
+<li>the phenotype y is residualised on C: ỹ = (I − P_C) y;</li>
+<li>the genotype g is residualised on C: g̃ = (I − P_C) g;</li>
+<li>β̂ = g̃ᵀỹ / g̃ᵀg̃, with the residual variance on <strong>df = N − 2 − k</strong> degrees of freedom,
+   where k is the numerical rank of the covariates (columns of [1, C] minus 1); without
+   covariates df = N − 2;</li>
+<li><code>rint</code> (<code>*_RINT</code> columns of <code>pair-assoc</code>, <code>--rint-after-adj</code> in <code>rect-assoc</code>) replaces ỹ
+   by the rank-based inverse normal transform of ỹ and tests it the same way.</li>
+</ol>
+<div class="arithmatex">\[
+\hat\beta = \frac{\tilde g^\top \tilde y}{\tilde g^\top \tilde g},\qquad
+\widehat{\mathrm{SE}}^2 = \frac{\tilde y^\top \tilde y - \hat\beta^2\,\tilde g^\top \tilde g}{(N-2-k)\;\tilde g^\top \tilde g}
+\]</div>
+<p>Steps 1-3 are the Frisch-Waugh-Lovell form of the full regression <code>y ~ 1 + C + g</code>, so <code>BETA</code>,
+<code>SE</code>, <code>TSTAT</code> and <code>LOG10P</code> equal an ordinary least-squares fit with the covariates in the
+model. <code>pair-assoc</code> and <code>rect-assoc</code> therefore agree on shared pairs: on the example data a
+cis run with sex, 5 PCs and 10 PEER factors replicates the same 231 (as given) or 230 (with
+<code>--rint</code>) of 367 pairs at p &lt; 10⁻⁵ with either engine.</p>
+<p>Missing genotypes are handled differently: <code>pair-assoc</code> drops the sample from that variant's
+test (complete case, <code>N</code> = called genotypes = regression sample size); <code>rect-assoc</code>
+mean-imputes them (<code>N</code> counts called genotypes, df uses all samples). With few missing calls
+the difference is negligible.</p>
+<h2 id="defences-kept-for-older-builds">Defences kept for older builds<a class="headerlink" href="#defences-kept-for-older-builds" title="Permanent link">&para;</a></h2>
+<p><code>anqchor.qpgen.outputs</code> keeps two fallbacks so that older binaries still run:</p>
+<ul>
+<li><code>pair-assoc</code> rows one field short of the header (raw <code>LOG10P</code> missing, before qpgen commit
+  <code>89eab88</code>): raw <code>LOG10P</code> is recomputed from <code>TSTAT</code>, and the run's
+  <code>cis/&lt;ds&gt;/summary.json</code> lists it under <code>recomputed_log10p</code>;</li>
+<li><code>rect-assoc</code> <code>N</code> is always recomputed from <code>N_RR + N_RA + N_AA</code>.</li>
+</ul>
+<p>The readers check the columns they rely on and fail with a descriptive error when qpgen's
+layout changes. These fallbacks do not make an older build's statistics correct; use 0.2.0.</p>
+<h2 id="known-qpgen-behaviours">Known qpgen behaviours<a class="headerlink" href="#known-qpgen-behaviours" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Variants are looked up by exact <code>CHROM:POS:REF:ALT</code>, with no allele flips or normalisation;
+  a variant not in the pvar is skipped. anqchor checks presence itself and reports
+  <code>variant_absent</code>.</li>
+<li><code>pair-assoc</code> and <code>rect-assoc</code> match samples by identical ID (no map).</li>
+<li><code>rect-assoc</code> stops on a missing phenotype or covariate value (including a missing level of a
+  categorical covariate); <code>pair-assoc</code> drops the sample. anqchor's prepared covariate files
+  have no missing values (<code>cov_missing</code>).</li>
+<li><code>match-prs-pheno</code> holds an <code>n_prs × n_pheno</code> score matrix in memory (729 × 729 in the
+  example is trivial; 150,000 × 20,000 is about 24 GB). <code>prs_samples</code> limits the PRS samples.</li>
+<li>The <code>rect-assoc</code> output has <code>11 + 4 × n_traits</code> columns per variant; keep rectangles small
+  (<code>trait_chroms</code>, <code>traits: reference</code>).</li>
+</ul>
+<p>The remaining open qpgen items (allele matching, dosage pgen files not yet tested with the
+new <code>pair-assoc</code> path) are listed in <code>extern/qpgen/dev/review-2026-10-anqchor.md</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Hyun Min Kang and contributors. Apache-2.0.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

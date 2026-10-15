@@ -52,7 +52,7 @@ dev = [
 anqchor = "anqchor.cli.main:main"
 
 [project.urls]
-Homepage = "https://github.com/hyunminkang/anqchor"
+Homepage = "https://github.com/statgen/anqchor"
 Documentation = "https://hyunminkang.github.io/anqchor/"
 
 [tool.hatch.build.targets.wheel]

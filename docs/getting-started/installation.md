@@ -7,7 +7,7 @@ PyPI yet; install it from a clone.
 ## 1. Clone with submodules
 
 ```bash
-git clone --recursive https://github.com/hyunminkang/anqchor.git
+git clone --recursive https://github.com/statgen/anqchor.git
 cd anqchor
 # already cloned without --recursive?
 git submodule update --init --recursive

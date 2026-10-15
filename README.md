@@ -17,7 +17,7 @@ parallel), and writes TSV/JSON summaries and interactive HTML reports.
 ## Install
 
 ```bash
-git clone --recursive https://github.com/hyunminkang/anqchor.git
+git clone --recursive https://github.com/statgen/anqchor.git
 cd anqchor
 uv sync                       # or: pip install -e .
 uv run anqchor qpgen build    # builds extern/qpgen/bin/qpgentools (macOS: brew install libomp llvm)
@@ -78,7 +78,7 @@ indicator columns. For categories coded as numbers (a batch number), add
 
 ## Documentation
 
-<https://hyunminkang.github.io/anqchor/> (sources in `docs/`; `uv sync --extra docs && uv run mkdocs serve`).
+<https://statgen.github.io/anqchor/> (sources in `docs/`; `uv sync --extra docs && uv run mkdocs serve`).
 
 ## License
 

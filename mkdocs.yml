@@ -2,8 +2,8 @@ site_name: anqchor
 site_description: Genetically anchored quality control for large-scale multi-omics xQTL analysis
 site_url: https://hyunminkang.github.io/anqchor/
 
-repo_name: hyunminkang/anqchor
-repo_url: https://github.com/hyunminkang/anqchor
+repo_name: statgen/anqchor
+repo_url: https://github.com/statgen/anqchor
 edit_uri: ""
 
 copyright: Copyright &copy; 2026 Hyun Min Kang and contributors. Apache-2.0.
