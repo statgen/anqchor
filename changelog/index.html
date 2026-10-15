@@ -1,0 +1,2013 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Genetically anchored quality control for large-scale multi-omics xQTL analysis">
+      
+      
+      
+        <link rel="canonical" href="https://hyunminkang.github.io/anqchor/changelog/">
+      
+      
+        <link rel="prev" href="../development/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Changelog - anqchor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changelog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="anqchor" class="md-header__button md-logo" aria-label="anqchor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            anqchor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/statgen/anqchor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    statgen/anqchor
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../use-cases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Use cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../user-guide/concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../pipelines/match/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Pipelines
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../reference/cli/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="anqchor" class="md-nav__button md-logo" aria-label="anqchor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    anqchor
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/statgen/anqchor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    statgen/anqchor
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../use-cases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use cases
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Use cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/example-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/identity-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/cis-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparing cis runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use-cases/trans-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trans evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/inputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user-guide/running/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipelines
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelines/match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    match (sample identity)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelines/cis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cis (replication of known pairs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipelines/trans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trans (replication, hotspots, inflation)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/qpgen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    qpgen integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/python-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unreleased-010dev0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [Unreleased] - 0.1.0.dev0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[Unreleased] - 0.1.0.dev0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-changed-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not changed yet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depends-on-qpgen-dev-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depends on qpgen dev changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#unreleased-010dev0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [Unreleased] - 0.1.0.dev0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[Unreleased] - 0.1.0.dev0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixed after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed-after-the-first-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed after the first review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-changed-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not changed yet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#depends-on-qpgen-dev-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Depends on qpgen dev changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<p>All notable changes to anqchor are recorded here. The format follows
+<a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>; versions follow
+<a href="https://semver.org/">Semantic Versioning</a>.</p>
+<h2 id="unreleased-010dev0">[Unreleased] - 0.1.0.dev0<a class="headerlink" href="#unreleased-010dev0" title="Permanent link">&para;</a></h2>
+<p>First implementation of the design in <code>DESIGN.md</code> (milestones M0-M3 and most of M4), revised
+after the first review (DESIGN.md section 11.2).</p>
+<h3 id="changed-after-the-first-review">Changed after the first review<a class="headerlink" href="#changed-after-the-first-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>trans compare</code></strong> (DESIGN 11.2-R). Evaluate trans setups like cis: one <code>trans run</code> per
+  setup, then <code>anqchor trans compare RUN_DIR... --out DIR [--label ...] [--no-report]</code>
+  (about 1 s, no qpgen), and <code>trans report --out DIR</code> to re-render the page of a run or of a
+  comparison. The comparison writes <code>runs.tsv</code> (inputs, cells, replicated reference pairs
+  per class over each run's pairs and over the pairs tested in every run, λ_GC, observed and
+  expected counts, hotspots), <code>hotspot_grid.tsv</code>, the runs' <code>hotspots.tsv</code>,
+  <code>hotspot_genes.tsv</code>, <code>qq.tsv</code> and <code>reference_pairs.tsv</code> stacked with a <code>run</code> column,
+  <code>summary.json</code> (<code>kind: comparison</code>, comparability checks, each run's summary),
+  <code>compare.json</code> and <code>settings/&lt;label&gt;.anqchor.yaml</code>, and warns when the runs differ in
+  genotype samples, reference, rectangle, cells, cis window or bin width. The comparison
+  page (<em>Comparing N runs: trans-QTL evaluation with anQChor</em>) shows replicated pairs per
+  run (cis and trans side by side), hotspot counts per run under shared threshold and
+  minimum controls with the bins, grid and table of a selected run, and λ_GC per run, one
+  QQ line per run and observed vs expected per run. <code>cis report</code> and <code>trans report</code> refuse
+  each other's comparison directories. The label, settings-copy and manifest code is shared
+  with <code>cis compare</code> (<code>steps/compare.py</code>); comparison file names are in <code>Layout</code>.
+  Both comparisons refuse an <code>--out</code> that is a run directory or the other kind of
+  comparison and a run directory given twice, and clean up a re-used comparison directory;
+  <code>runs.tsv</code> of trans also has <code>n_hotspots_shared</code>.</li>
+<li><strong>trans: one run per setup, report redesigned</strong> (DESIGN 11.2-Q). <code>trans run</code> now stops at
+  the summary tables; new <code>trans report --out DIR</code> (re-renders <code>report/trans.html</code> from the
+  tables in about a second, no qpgen) and <code>trans all</code> (both). A run tests one phenotype
+  transform: as given, or with the new <code>--rint</code> (<code>pipelines.trans.rint</code>,
+  <code>rect-assoc --rint-after-adj</code>); <code>transforms</code> under <code>pipelines.trans.strategies</code>, more than
+  one trans strategy, and <code>pipelines.trans.levels.fdr</code> are now errors that say what to write
+  instead. New <code>--hotspot-bin-bp</code> (<code>hotspot_bin_bp</code>, default 1 Mb); <code>hotspot_min_traits</code>
+  now means genes per bin. Summaries (schema 2): <code>summary.json</code>, <code>reference_pairs.tsv</code>
+  (every reference pair with its cis/trans class and replication at same sign, p &lt; 0.05,
+  p &lt; 1e-5), <code>hotspots.tsv</code> and <code>hotspot_genes.tsv</code> (1-Mb bins: distinct genes with a trans
+  signal, genes in cis with the bin not counted, over a grid of thresholds × minimum genes),
+  <code>qq.tsv</code> (cross-chromosome cells with a 95% band), <code>variants.tsv</code>, <code>pairs.sig.tsv.gz</code>;
+  <code>strategies.tsv</code>, <code>traits.tsv</code>, <code>known_pairs.tsv</code> and the recommendation are gone. The
+  inflation cells leave out the regions of the reference's trans pairs. The report, <em>trans-QTL
+  evaluation with anQChor</em>, shows replicated reference pairs (cis and trans), hotspots (with
+  threshold and minimum-genes controls, bins along the genome and the grid) and inflation
+  (QQ plot, λ_GC, observed vs expected). <code>examples/mage/trans.yaml</code> is the all-covariate run
+  on the GTEx reference (<code>gtex_lcl</code>). On the example: λ_GC 1.74 without covariates (37
+  hotspots at p &lt; 1e-5, ≥ 5 genes), 1.00-1.02 with covariates (none).</li>
+<li><strong>Independent example reference</strong> (DESIGN 11.2-P). The example's known cis-eQTLs are no
+  longer the MAGE study's own top pairs (discovered in the same samples, which inflated
+  identity matches and favoured the all-covariate cis setup by construction) but GTEx v10
+  EBV-transformed lymphocyte eGenes with their sentinel variant:
+  <code>examples/mage/data/reference/gtex_lcl_eqtl.chr21_22.tsv.gz</code> (replaces
+  <code>mage_top_cis_eqtl.chr21_22.tsv.gz</code>), 367 pairs and 346 variants on chr21/22 (q ≤ 0.05,
+  variant in the genotypes with MAF ≥ 5%, gene in the MAGE expression). The expression and
+  gene loci now hold those 367 genes. The build script takes the GTEx table:
+  <code>make_compact_data.sh FULL_DATA_DIR GTEX_EGENES [PLINK2]</code>. <code>examples/mage/match.yaml</code> and
+  <code>cis.yaml</code> name the reference <code>gtex_lcl</code>. New example results: match 713 strict, 14
+  lenient, 2 unclear (<code>NA11919</code> fails its own genotype clearly but has no clear
+  alternative); cis at p &lt; 1e-5 of 367 pairs: 178 (no covariates), 162 (sex, PC1-5), 231
+  (+ PEER1-10), 251 (all 66). Documentation, <code>expected_mage.json</code> and the tests follow.</li>
+<li><strong>cis: one phenotype transform per run</strong> (DESIGN 11.2-N). A cis run no longer evaluates
+  raw and RINT automatically: it tests the phenotypes as given, or with the new flag
+  <code>--rint</code> on <code>cis run</code> / <code>cis all</code> (config <code>pipelines.cis.rint: true</code>) the rank-based
+  inverse normal transform after covariate adjustment (qpgen <code>pair-assoc</code> without
+  <code>--skip-rint</code>, <code>rect-assoc --rint-after-adj</code>). Raw and RINT are compared as two runs with
+  <code>cis compare</code>, which accepts runs that differ in the transform. cis strategies lose the
+  <code>transforms</code> key; a configuration that still lists it is rejected with a message saying
+  what to write instead (trans followed: see below).</li>
+<li><strong>cis summaries, schema 3</strong> (2 had <code>z</code> as the normal quantile of the p-value; a new
+  schema re-runs the summarize step). The transform dimension is gone: rows are labelled by
+  <code>run</code> (= <code>label</code>): the run directory name for a single-strategy run, the run label in a
+  comparison. <code>pairs.long.tsv.gz</code> gains <code>z_ref</code> (<code>beta_ref / se_ref</code>), <code>log10p_ref</code>
+  (from the reference <code>pval</code>, read from the text so p-values below the double range keep
+  their size; from <code>z_ref</code> when there is no p-value) and <code>z</code> (<code>beta / se</code>, aligned with <code>z_ref</code>; the signed normal
+  quantile of the p-value only without <code>se</code>); <code>strategies.tsv</code> gains <code>rint</code>, <code>mean_z2</code>, <code>mean_z2_common</code> and <code>rel_neff</code>
+  (effective sample size relative to the first run, (mean z² − 1) / (baseline mean z² − 1)
+  over the pairs tested in every run); <code>traits.tsv</code> has <code>best_run</code>; <code>power_curve.tsv</code> has
+  <code>run</code>; <code>summary.json</code> has <code>rint</code>, <code>runs</code>, <code>per_run</code>, <code>unresolved_by_run</code>, and
+  <code>recommended.run</code>; <code>runs.tsv</code> of a comparison and its <code>comparability</code> record <code>rint</code> per
+  run. <code>cis compare</code> refuses runs with another summary schema (re-run them) and re-derives
+  <code>z</code> and <code>mean_z2</code> from each run's <code>beta</code> and <code>se</code>. <code>power_curve.tsv</code> counts p &lt; 10^−t,
+  as the levels (was p ≤). The MAGE
+  example adds <code>peer60_rint</code>; on it the relative N_eff (vs nocov) is 0.83 (basic), 1.58
+  (peer10), 2.27 (peer60) and 2.10 (peer60_rint) with the GTEx reference.</li>
+<li><strong>cis report redesigned</strong> (DESIGN 11.2-O; single run and comparison, match report style):
+  title "cis-QTL replication with anQChor" ("Comparing N runs: …"), then the power curve
+  first (log(1 + t) axis labelled in −log10 p), signal strength (the effective sample
+  size relative to the baseline as dots with 95% bootstrap intervals on a log axis, then
+  |z| / −log10 p boxes per run over the pairs tested in every run, the reference hollow),
+  significant hits per run (rows; same sign, p &lt; 0.05, p &lt; 1e-5), agreement with the
+  reference (effect size, z, −log10 p with independent axes and a fit through 0, and z
+  against the baseline with y = x, for a selected run; open diamonds for opposite signs),
+  all pairs (100 a page, header and pair column pinned, opposite signs marked per run) and
+  collapsed run details (a link to <code>strategies.tsv</code> instead of its raw columns). The "Raw vs RINT" section, the
+  recommendation paragraph and the word "strategy" are gone. A summary warning about
+  unmapped pairs says "the phenotypes" instead of the dataset's internal name.</li>
+<li><strong>Match report, round two: samples without an ID, duplicates, the table.</strong></li>
+<li>One set of result names everywhere (tiles, cards, chart legend, filters, table):
+    "Matches another sample", "ID already used", "Own ID too weak" (was "No match" /
+    "Matches nothing"), "Matches several", "Matches two genotype IDs" (violet, its own
+    glyph), "New ID found", "Lenient match", "Strict match", "No clear match", "Not scored"
+    (with its own tile). The "Samples examined" tile is gone (the header has the count);
+    tile numbers come first so they line up. Slider info icons are replaced by one-line
+    hints. Own-ID-too-weak cards give the best genotype's lead and the lead needed.</li>
+<li>A sample matching two genotype IDs, one of them its own (or with no ID), is not a
+    mismatch: no proposed ID, not a rescue candidate, left out of the verdict's mismatches,
+    <code>n_fail</code>, <code>failing</code> and <code>swaps.tsv</code> (new <code>n_fail_two_ids</code>); duplicates alone make the
+    verdict a <code>warning</code>.</li>
+<li>Table headers are short and on one line (own score, own rank, best other, its score,
+    lead, suggested ID); rows without an assigned ID show the best genotype's lead in
+    italics; lenient rows are no longer red.</li>
+<li>A mismatch is never shown as a duplicate. "Possible duplicates" is replaced by
+    <strong>Duplicates</strong>: samples that match two genotype IDs about equally (the top two stand
+    clear of the third by <code>z_diff</code>, the second scores above <code>z_threshold</code> and at least 0.8 ×
+    the first), most likely one person under two genotype IDs. The relatives fold is gone;
+    an empty section is one line. Such a sample shows as "Matches two genotype IDs" (new
+    tile when present) unless its own ID ranks first; qpgen's status is unchanged.</li>
+<li>Samples without an assigned ID are counted ("No assigned ID" tile: new ID found, ID
+    already used, unclear), get cards (one summary card when more than six), a table filter,
+    and appear in the chart, which now plots every scored sample by its best and runner-up
+    match score, with the clear-lead line and a grey "one genotype clearly best" region. Samples
+    without an ID are hollow markers.</li>
+<li>The sample table scrolls with the page (sticky header, no inner scroll box), has fixed
+    column widths and right-aligned numbers, and plain headers (the lead column replaces
+    "Margin"; no info icons). Phones show sample (best other genotype under it), result, own
+    score and lead without sideways scrolling.</li>
+<li>Summaries: new <code>duplicates.tsv</code> and <code>n_duplicates</code> (samples there are left out of
+    <code>related.tsv</code>, and the verdict names them); <code>NOT_SCORED</code> samples keep their assigned ID
+    (the summarize step now reads the prepared sample map) and are a <code>summary.json</code> warning
+    ("N samples not scored: no covariates"), also named in the verdict; an unmapped sample
+    whose clear best genotype is another sample's confirmed match is no longer a rescue
+    candidate (report: "ID already used"); notes no longer say "duplicate or contaminated
+    library" or "pooled or contaminated sample".</li>
+<li><strong>Match report redesigned</strong> ("Sample identity matching with anQChor"). A dashboard of
+  large tiles (examined, with an assigned ID, strict match, lenient match, matches a
+  different sample, fits several samples when non-zero, matches nothing), two sliders
+  directly below it that reclassify every sample in the browser, one card per sample to
+  check, a single scatter chart, "Possible duplicates" (two samples with the same best
+  genotype, or own and one other genotype scoring alike and both clearly ahead; the
+  relative-level pairs of <code>related.tsv</code> fold into one collapsed line), a sortable sample
+  table (500 rows per page, 100 on phones) and collapsed run details. Plain result names
+  replace PASS/WARN/FAIL/NO_TEST and the qpgen codes, which remain in tooltips, the TSV
+  download and a code table; qpgen's Z-score is called the "match score". The page shows the
+  scoring mode and, for independent scoring, a tip that <code>--mahalanobis</code> matches slightly
+  better. Summaries are unchanged. Shared report changes: reports link to the index page
+  only in runs that write one (new <code>has_index</code> report-step parameter), larger type scale,
+  compact theme toggle, tables default to 500 rows per page with a 100 | 500 | All selector.</li>
+<li><strong>Categorical covariates are encoded by qpgen.</strong> qpgen (submodule at <code>5b811e2</code>, still
+  <code>qpgentools 0.2.0</code>) accepts <code>--cat-cov-names</code> in <code>match-prs-pheno</code>, <code>pair-assoc</code>,
+  <code>rect-assoc</code> and <code>region-assoc</code> (REGENIE <code>--catCovarList</code>: L levels → L − 1 indicators, the
+  first sorted level is the reference, <code>--max-cat-levels</code> default 10, a missing level is a
+  missing covariate). anqchor no longer recodes categorical covariates:
+  <code>prepare/datasets/&lt;ds&gt;/cov.regenie.tsv.gz</code> and the strategies' <code>cov.regenie.tsv.gz</code> keep
+  their text levels (<code>sex</code> stays <code>XX</code>/<code>XY</code>), and every qpgen call gets <code>--cat-cov-names</code> with
+  the categorical covariates it uses (<code>--cov-include sex,PC1-5</code> passes <code>sex</code>,
+  <code>--cov-include PC1-5,PEER1-10</code> none). Categorical = non-numeric columns (detected when the
+  Makefile is built) plus the names given with the new flag <code>--cat-cov-names</code> on <code>match</code>,
+  <code>cis</code> and <code>trans</code> (config <code>datasets.&lt;ds&gt;.cov_categorical</code>), for categories coded as
+  numbers. <code>cov.json</code> gains <code>raw_columns</code> and <code>categorical_names</code>; <code>strategy.json</code> gains
+  <code>cat_cov_names</code>. <code>anqchor prepare cov</code> keeps text levels by default and prints the
+  <code>--cat-cov-names</code> value; <code>--encode</code> writes numeric indicator columns as before. A
+  categorical covariate with more than 10 levels also gets <code>--max-cat-levels N</code> (qpgen's
+  default cap is 10, anqchor's own check allows more). Results are
+  identical to the numeric encoding (match outputs and cis statistics byte-identical on the
+  example).</li>
+<li><strong>Separate run, report and all commands.</strong> <code>match run</code> and <code>cis run</code> stop at the summary
+  tables and write no HTML. New <code>match report --out RUN</code> and <code>cis report --out DIR</code> re-render
+  the HTML from existing tables in about a second without running qpgen; <code>match all</code> and
+  <code>cis all</code> run and then render.</li>
+<li><strong>cis evaluates one set of inputs per run.</strong> <code>cis run</code> takes the genotypes, phenotypes,
+  covariates and reference of one setup from flags, with <code>--cov-include</code> to use a subset of
+  the covariate columns (comma-separated; ranges such as <code>PEER1-10</code> expand) and no strategy
+  name. Runs are independent and can run in parallel.</li>
+<li><strong>Flags first.</strong> All documented commands work from flags alone; <code>--config</code> is optional and
+  flags override it.</li>
+<li><strong>No <code>report/index.html</code> for single-analysis runs</strong>; it is written only when one invocation
+  runs several pipelines (<code>anqchor run</code>).</li>
+<li><strong>qpgen 0.2.0 or later</strong> (<code>qpgentools --version</code>; submodule first at <code>76f2fd1</code>, now at
+  <code>5b811e2</code> for categorical covariates). It fixes, among
+  others, <code>pair-assoc</code> without covariates (no centering), missing values read as 0, sample
+  misalignment with real FIDs in the psam, and unstable residuals with near-duplicate
+  covariates (see <code>extern/qpgen/dev/review-2026-10-anqchor.md</code>).</li>
+<li><strong>Example and tests use compact in-repo data.</strong> <code>examples/mage/data/</code> (32 MB): 729 MAGE
+  individuals × 256,645 variants with MAF ≥ 5% on chr21/22, 367 genes, 66 covariates and
+  367 known cis-eQTL pairs from GTEx, rebuilt by <code>examples/mage/make_compact_data.sh</code>. Integration tests
+  need no external data; <code>tests/integration/expected_mage.json</code> holds the numbers on this data.</li>
+<li><strong>Documentation</strong> reorganised around three separate analyses, with flags-first commands,
+  the new example numbers, a use-case overview and an example-data page; report screenshots
+  removed until the report redesign; diagrams are short vertical mermaid charts.</li>
+</ul>
+<h3 id="added-after-the-first-review">Added after the first review<a class="headerlink" href="#added-after-the-first-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>anqchor cis compare RUN_DIR... --out DIR [--label L ...] [--no-report]</code>: compares finished
+  cis runs with any inputs. Writes <code>runs.tsv</code>, <code>strategies.tsv</code> (one row per run × transform,
+  with <code>n_rep_&lt;level&gt;</code> over each run's tested pairs and <code>n_rep_&lt;level&gt;_common</code> over the pairs
+  tested in every run), <code>pairs.long.tsv.gz</code>, <code>traits.tsv</code>, <code>power_curve.tsv</code>, <code>summary.json</code>,
+  <code>compare.json</code>, <code>settings/&lt;label&gt;.anqchor.yaml</code> (each run's exact settings) and
+  <code>report/cis.html</code>.</li>
+<li><code>--cov-include</code> for <code>cis run</code> / <code>cis all</code> and <code>trans run</code>; <code>--hotspot-min-traits</code> for <code>trans run</code>.</li>
+<li>Reproducing a run: <code>anqchor &lt;analysis&gt; run --config RUN/anqchor.resolved.yaml --out NEW</code>
+  (the resolved file holds every setting, including flags).</li>
+<li>Optional per-analysis example configurations <code>examples/mage/match.yaml</code>, <code>cis.yaml</code>,
+  <code>trans.yaml</code>.</li>
+</ul>
+<h3 id="fixed-after-the-first-review">Fixed after the first review<a class="headerlink" href="#fixed-after-the-first-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>--pairs</code> (and a configuration without <code>columns.pval</code>) reads a column named <code>pval</code> when the
+  file has one, as <code>--help</code> says (<code>trait variant beta se [pval]</code>); flags-only runs reported
+  <code>pval_ref</code> as <code>NA</code>, and comparing them with configuration runs of the same file warned
+  about different reference pairs.</li>
+<li><code>--dry-run</code> and <code>anqchor steps</code> no longer overwrite an existing <code>anqchor.resolved.yaml</code>, so
+  the file keeps describing the settings of the outputs (and reproduces them).</li>
+<li>Top-level <code>anqchor report</code> on a configuration with one pipeline no longer fails asking for
+  <code>report.index</code>.</li>
+<li><code>match run</code> / <code>cis run</code> say when an existing report is older than the new results (instead
+  of printing its path as current).</li>
+<li><code>cis compare</code>: <code>n_common_tested</code> and <code>n_rep_&lt;level&gt;_common</code> are integers in <code>summary.json</code>.</li>
+<li><code>--threads</code> help says that only identity matching uses it; the cis <code>transform_semantics</code>
+  refer to qpgen 0.2.0 instead of development commits; the <code>trait_chroms</code> error no longer
+  prints an empty <code>(e.g. )</code>.</li>
+</ul>
+<h3 id="removed-after-the-first-review">Removed after the first review<a class="headerlink" href="#removed-after-the-first-review" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>examples/mage/config.yaml</code> (the all-in-one example running three pipelines together) and
+  the dependency of tests and examples on <code>tmp/mage_examples_data</code>.</li>
+</ul>
+<h3 id="not-changed-yet">Not changed yet<a class="headerlink" href="#not-changed-yet" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>trans run</code> still takes its covariate strategies from the configuration file and writes
+  <code>report/trans.html</code> within the run; it will be restructured like cis.</li>
+</ul>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CLI</strong> (<code>anqchor</code>, Typer): <code>run</code>, <code>steps</code>, <code>report</code>, <code>match run</code>, <code>cis run</code>, <code>trans run</code>,
+  <code>qpgen build|check</code>, <code>prepare index-pvar|pgen-list|pheno|cov</code>, and the hidden <code>_step</code>.
+  Configuration file and/or flags (flags override the file); exit codes 2 (configuration),
+  3 (step failed), 4 (qpgen missing).</li>
+<li><strong>Configuration</strong> (pydantic v2, unknown keys rejected): genotypes, references, datasets,
+  pipelines, report; resolved config written to every run directory.</li>
+<li><strong>Execution engine</strong>: steps with declared inputs, outputs and parameters, written as a GNU
+  make 3.81-compatible <code>Makefile</code>; step signatures re-run exactly the affected steps when a
+  parameter changes; deleted outputs re-run their step and everything downstream;
+  <code>--until</code>, <code>--only</code>, <code>--force</code>, <code>--dry-run</code>, <code>-j</code>, <code>--keep-going</code>; per-step logs;
+  <code>run.json</code> provenance with qpgen sha256 and commit and per-step times.</li>
+<li><strong>qpgen integration</strong>: submodule <code>extern/qpgen</code> (branch <code>dev</code>), <code>anqchor qpgen build</code>,
+  binary discovery (<code>--qpgen</code>, <code>$ANQCHOR_QPGEN</code>, <code>PATH</code>, submodule), typed command builders and
+  schema-checking output readers with fallbacks for older builds.</li>
+<li><strong>Input preparation</strong>: pgen lists (4 or 6 columns, relative prefixes resolved near the list,
+  written as 4-column lists with absolute prefixes, symlinks for non-standard names);
+  chromosome style detection and normalisation; indexed-pvar creation; phenotype conversion
+  from regenie, tensorQTL, tsv-sample-row and tsv-sample-col layouts; covariate encoding
+  (categorical detection, constant columns dropped, missing-value policies; categorical
+  covariates were first recoded to &frac12; codes and are now passed to qpgen as text, see above); trait
+  annotation from BED-like files or tensorQTL matrices with automatic ID-rule matching;
+  reference normalisation and presence check against the pvar with an SNV/indel split; trait-ID
+  rules and trait maps; sample maps.</li>
+<li><strong>match pipeline</strong>: <code>pair-prs</code> over all genotyped samples, <code>match-prs-pheno</code> with
+  independence scoring by default (<code>mahalanobis: true</code> opt-in with auto/fallback/fixed λ),
+  per-sample statuses and <code>PASS/WARN/FAIL/NO_TEST</code> groups, reciprocal and one-way swaps, rescue
+  candidates, possible relatives (largest Z drop in the top five), trait weights; report with
+  in-browser recomputation of statuses for user-chosen <code>z_threshold</code> / <code>z_diff</code> and
+  "copy as config".</li>
+<li><strong>cis pipeline</strong>: strategies (default, <code>include</code> subsets with ranges, separate files, none,
+  phenotype overrides; raw and RINT), <code>pair</code> and <code>rect</code> engines, replication levels <code>sign</code>,
+  <code>nominal</code>, <code>fdr</code>, <code>bonferroni</code>, <code>strict</code>, unresolved-pair check, per-trait table, power
+  curves, π1, recommended strategy with a rationale; report.</li>
+<li><strong>trans pipeline</strong>: variant × trait rectangle (<code>variants</code>, <code>traits</code>, <code>trait_chroms</code>), cell
+  classes (known, other cis, same-chromosome distal, cross-chromosome, unknown), streaming
+  summarizer with bounded memory, λ_GC, QQ, hotspots, significant pairs, known-pair replication,
+  recommendation; report.</li>
+<li><strong>Reports</strong>: self-contained HTML (plotly embedded or from CDN) with light/dark themes, table
+  views and TSV downloads; an index page. Offline with the CDN, each chart area shows a notice;
+  status dots carry a screen-reader status word.</li>
+<li><strong>Re-run safety</strong>: step signatures include the <code>qpgentools</code> sha256 (qpgen steps) and the
+  anqchor version (Python steps), so a rebuilt qpgen or an upgraded anqchor re-runs the affected
+  steps; a step deletes its stamp before running, so a failed <code>--only</code>/<code>--force</code> re-run leaves
+  no stale stamp; <code>--only</code> refuses when an upstream step is missing or out of date; an exclusive
+  lock (<code>&lt;run&gt;/.anqchor.lock</code>) makes a second command on the same run directory exit with code 2;
+  <code>--threads</code> reaches the step through <code>$ANQCHOR_THREADS</code> and is in no signature.</li>
+<li><strong>Selection flags</strong>: with several pipelines, <code>--dataset</code> / <code>--strategy</code> skip the pipelines
+  left with no matching dataset or strategy (an error only when none is left).</li>
+<li><strong>Input validation</strong>: compression detected from file contents; IDs with whitespace or
+  quotes rejected; infinite phenotype or covariate values rejected; a mostly numeric covariate
+  with a few non-numeric cells, a non-numeric covariate with more than 20 levels (unless listed
+  in <code>cov_categorical</code>) and colliding categorical level names are errors; empty cells are
+  missing values; headerless trait annotations with numeric trait IDs need a header;
+  nucleotide alleles upper-cased; samples dropped for missing covariates and <code>sample_map</code>
+  ID mismatches reported in <code>dataset.json</code> (<code>n_samples_analysable</code>, <code>warnings</code>) and in the
+  <code>cis</code>/<code>trans</code> summaries.</li>
+<li><strong>Statistics details</strong>: one shared threshold rule for <code>cis</code> and <code>trans</code> (p &lt; α for fixed
+  levels and Bonferroni, BH q ≤ α for FDR); cis levels ranked by their actual −log10 p
+  cut-off (<code>level_order</code>), with the recommendation keyed on the strongest level; rows without
+  a finite statistic are <code>not_tested</code>; <code>reciprocal-weak</code> swaps (neither side a clear
+  mismatch) listed but not counted; no <code>proposed_geno_id</code> when the best genotype is another
+  sample's confirmed match.</li>
+<li><strong>Tests</strong>: unit tests without qpgen; MAGE chr21/22 integration tests against
+  <code>tests/integration/expected_mage.json</code>.</li>
+<li><strong>Documentation</strong>: mkdocs-material site, README, example <code>examples/mage/</code>.</li>
+</ul>
+<h3 id="depends-on-qpgen-dev-changes">Depends on qpgen <code>dev</code> changes<a class="headerlink" href="#depends-on-qpgen-dev-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>89eab88</code>: <code>pair-assoc</code> raw <code>LOG10P</code> column, <code>pair-assoc</code> lookup re-seek, <code>rect-assoc</code> <code>N</code>,
+  tensorQTL header case.</li>
+<li><code>37b2cb2</code>: 6-column pgen lists read as <code>PGEN PSAM PIVAR</code>.</li>
+<li><code>f422acd</code>: <code>pair-assoc</code> residualises genotypes on the covariates (both cis engines agree).</li>
+<li><code>938bf19</code>: residual df <code>N − 2 − k</code> with covariates in all association tools. On the full
+  MAGE chr21/22 data (before the compact example): <code>peer60/raw</code> 511 known pairs at p &lt; 1e-5
+  (was 549 with df <code>N − 2</code>), 593 at Bonferroni; trans λ_GC ≈ 1.01.</li>
+<li><code>b8df9c9</code>, <code>76f2fd1</code> (qpgen 0.2.0): the fixes from the anqchor review and
+  <code>qpgentools --version</code>.</li>
+<li><code>cb97eb0</code>, <code>5b811e2</code> (still 0.2.0): categorical covariates (<code>--cat-cov-names</code>) and named
+  covariates (<code>--cov-names</code>) in the association tools and <code>match-prs-pheno</code>; anqchor uses
+  <code>--cat-cov-names</code>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Hyun Min Kang and contributors. Apache-2.0.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

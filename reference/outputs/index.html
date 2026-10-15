@@ -1,0 +1,2421 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Genetically anchored quality control for large-scale multi-omics xQTL analysis">
+      
+      
+      
+        <link rel="canonical" href="https://hyunminkang.github.io/anqchor/reference/outputs/">
+      
+      
+        <link rel="prev" href="../cli/">
+      
+      
+        <link rel="next" href="../qpgen/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Output files - anqchor</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#output-files" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="anqchor" class="md-header__button md-logo" aria-label="anqchor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            anqchor
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Output files
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/statgen/anqchor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    statgen/anqchor
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../use-cases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Use cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/concepts/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  User guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pipelines/match/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Pipelines
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cli/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../development/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="anqchor" class="md-nav__button md-logo" aria-label="anqchor" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    anqchor
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/statgen/anqchor" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    statgen/anqchor
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../use-cases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use cases
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Use cases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/example-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/identity-matching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/cis-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparing cis runs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use-cases/trans-strategies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trans evaluation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/inputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/running/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipelines
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pipelines
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipelines/match/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    match (sample identity)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipelines/cis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cis (replication of known pairs)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pipelines/trans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    trans (replication, hotspots, inflation)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output files
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run-level-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run-level files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="prepare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparegenotypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/genotypes/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparereferencesref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/references/&lt;ref&gt;/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparedatasetsds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/datasets/&lt;ds&gt;/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparedatasetsdsrefref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/datasets/&lt;ds&gt;/ref.&lt;ref&gt;/
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#match" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        match
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cis run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cis-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cis compare
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trans
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trans-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trans compare
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qpgen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    qpgen integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#run-level-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run-level files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="prepare">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparegenotypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/genotypes/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparereferencesref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/references/&lt;ref&gt;/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparedatasetsds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/datasets/&lt;ds&gt;/
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparedatasetsdsrefref" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        prepare/datasets/&lt;ds&gt;/ref.&lt;ref&gt;/
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PRS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#match" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        match
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cis run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cis-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cis compare
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trans
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trans-compare" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trans compare
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="output-files">Output files<a class="headerlink" href="#output-files" title="Permanent link">&para;</a></h1>
+<p>Every file a fresh run writes, with its columns or keys. The lists below were taken from
+runs of <code>match run</code> + <code>match report</code>, <code>cis run</code> (five runs) + <code>cis compare</code>, and <code>trans run</code>
+(five runs) + <code>trans compare</code> on the example data. Paths are relative to the run (or comparison) directory; file names come
+from one place, <code>anqchor.pipelines.layout.Layout</code>. Conventions:</p>
+<ul>
+<li>TSV files have a header (except the plain ID lists and maps noted below), use <code>NA</code> for
+  missing values and <code>1</code>/<code>0</code> for booleans; <code>.gz</code> files are gzip/bgzip compressed.</li>
+<li>Every JSON file has <code>schema_version</code> (currently <code>1</code>; <code>3</code> for the cis <code>summary.json</code> of a
+  run or comparison, which a comparison requires of every run; <code>2</code> for the trans
+  <code>summary.json</code> of a run or comparison, which <code>trans compare</code> and <code>trans report</code> require).</li>
+<li>Paths inside summaries are relative to the run directory.</li>
+<li>In a flags-only run the dataset is called <code>dataset</code> and the reference <code>reference</code>, so
+  <code>&lt;ds&gt;</code> = <code>dataset</code> and <code>&lt;ref&gt;</code> = <code>reference</code> below.</li>
+</ul>
+<h2 id="run-level-files">Run-level files<a class="headerlink" href="#run-level-files" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>anqchor.resolved.yaml</code></td>
+<td>complete settings of the last command that ran steps in the directory (defaults filled in, paths absolute, flags included; a dry run or <code>anqchor steps</code> leaves it unchanged); a valid <code>--config</code> file</td>
+</tr>
+<tr>
+<td><code>run.json</code></td>
+<td>provenance; see <a href="../../user-guide/running/#provenance-runjson">Running</a></td>
+</tr>
+<tr>
+<td><code>Makefile</code></td>
+<td>generated; rewritten on every invocation</td>
+</tr>
+<tr>
+<td><code>.anqchor.lock</code></td>
+<td>run-directory lock held while a command runs (a second command on the same directory exits with code 2)</td>
+</tr>
+<tr>
+<td><code>steps/&lt;step&gt;.json</code></td>
+<td>step signature: <code>name kind pipeline inputs outputs commands params</code>, plus <code>params.qpgen_sha256</code> for steps that run qpgen and <code>anqchor_version</code> for Python steps</td>
+</tr>
+<tr>
+<td><code>steps/&lt;step&gt;.done</code>, <code>.seconds</code></td>
+<td>stamp and wall time of the last successful run</td>
+</tr>
+<tr>
+<td><code>logs/&lt;step&gt;.log</code></td>
+<td>step stdout and stderr</td>
+</tr>
+</tbody>
+</table>
+<h2 id="prepare">prepare<a class="headerlink" href="#prepare" title="Permanent link">&para;</a></h2>
+<h3 id="preparegenotypes"><code>prepare/genotypes/</code><a class="headerlink" href="#preparegenotypes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pgen_list.tsv</code></td>
+<td>qpgen pgen list, 4 columns <code>CHROM BEG END PREFIX</code>, absolute prefixes, no header</td>
+</tr>
+<tr>
+<td><code>links/</code></td>
+<td>symlinks giving non-standard file names a common prefix (only when needed)</td>
+</tr>
+<tr>
+<td><code>samples.txt</code></td>
+<td>genotype IIDs, one per line, psam order</td>
+</tr>
+<tr>
+<td><code>genotypes.json</code></td>
+<td><code>pgen_list</code> or <code>pfile</code>, <code>n_samples</code>, <code>chrom_style</code> (<code>chr</code>/<code>plain</code>), <code>chromosomes</code>, <code>entries</code> (<code>chrom beg end pgen psam pivar</code>), <code>n_entries</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="preparereferencesref"><code>prepare/references/&lt;ref&gt;/</code><a class="headerlink" href="#preparereferencesref" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pairs.tsv.gz</code></td>
+<td>normalised pairs: <code>trait variant beta se pval</code> (<code>pval</code> may be <code>NA</code>); variant IDs in the genotype chromosome style; invalid rows and duplicates removed</td>
+</tr>
+<tr>
+<td><code>variants.tsv</code></td>
+<td>one row per unique variant: <code>variant chrom pos ref alt is_indel present</code></td>
+</tr>
+<tr>
+<td><code>variants.present.txt</code></td>
+<td>present variants, one CPRA per line, sorted, no header</td>
+</tr>
+<tr>
+<td><code>reference.json</code></td>
+<td><code>reference kind n_pairs_input n_pairs n_invalid n_duplicates n_traits n_variants n_variants_list n_variants_list_invalid n_present n_absent n_absent_snv n_absent_indel absent_examples invalid_examples per_chrom chrom_renamed chrom_style presence_method</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="preparedatasetsds"><code>prepare/datasets/&lt;ds&gt;/</code><a class="headerlink" href="#preparedatasetsds" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pheno.regenie.tsv.gz</code></td>
+<td>phenotypes, regenie layout <code>FID IID trait…</code>, the dataset's own sample IDs</td>
+</tr>
+<tr>
+<td><code>cov.regenie.tsv.gz</code></td>
+<td>covariates, regenie layout <code>FID IID sex PC1 …</code> (only with <code>cov</code>); categorical covariates keep their text levels (<code>sex</code> is <code>XX</code>/<code>XY</code>), constant columns are dropped and missing values are handled by <code>cov_missing</code>. There is no numeric copy: qpgen encodes the categorical columns (<code>--cat-cov-names</code>)</td>
+</tr>
+<tr>
+<td><code>cov.json</code></td>
+<td><code>raw_columns</code> (the columns of <code>cov.regenie.tsv.gz</code>), <code>categorical_names</code> (the categorical covariates, passed to qpgen as <code>--cat-cov-names</code>), <code>categorical</code> (name → {level: code}, levels in sorted order), <code>names</code>, <code>columns</code> and <code>groups</code> (original name → columns of the equivalent numeric encoding: L − 1 per categorical covariate; used only to count covariates for degrees of freedom and to resolve <code>--cov-include</code>), <code>dropped_constant</code>, <code>dropped_all_missing</code>, <code>n_samples</code>, <code>missing_policy</code>, <code>n_missing_handled</code>, <code>dropped_samples</code></td>
+</tr>
+<tr>
+<td><code>traits.tsv</code></td>
+<td><code>trait chrom start end</code> for every phenotype trait (<code>NA</code> when unknown), genotype chromosome style</td>
+</tr>
+<tr>
+<td><code>samples.txt</code></td>
+<td>phenotype sample IDs</td>
+</tr>
+<tr>
+<td><code>sample_map.tsv</code></td>
+<td><code>geno_id pheno_id</code>, no header, IDs present on both sides (identity pairs without a <code>sample_map</code>)</td>
+</tr>
+<tr>
+<td><code>dataset.json</code></td>
+<td><code>dataset omics pheno pheno_format pheno_fast_path n_samples_pheno n_traits n_missing_values n_samples_geno n_samples_geno_overlap n_samples_mapped n_samples_analysable (phenotyped, genotyped and with covariates: usable by</code>cis<code>/</code>trans<code>) warnings (dropped or covariate-less samples,</code>sample_map<code>ID mismatch) n_pheno_unmapped pheno_unmapped_examples sample_map [n_sample_map_rows n_sample_map_rows_geno_missing n_sample_map_rows_pheno_missing n_geno_with_several_pheno] has_cov n_cov_columns cov_columns n_cov_samples n_pheno_without_cov cov_categorical (name → {level: code}) cov_dropped_constant cov_missing_policy cov_n_missing_handled has_loci n_traits_with_loci trait_annot_source trait_annot_rule trait_id_rule seconds_pheno seconds_total</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="preparedatasetsdsrefref"><code>prepare/datasets/&lt;ds&gt;/ref.&lt;ref&gt;/</code><a class="headerlink" href="#preparedatasetsdsrefref" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>trait_map.tsv</code></td>
+<td><code>ref_trait pheno_trait</code>, no header, mapped traits only</td>
+</tr>
+<tr>
+<td><code>pairs.tsv.gz</code></td>
+<td><code>trait variant beta se pval ref_trait present</code>: reference pairs rewritten to dataset trait IDs (<code>present</code> 0/1)</td>
+</tr>
+<tr>
+<td><code>variants.txt</code></td>
+<td>present variants of the mapped pairs, one CPRA per line, sorted</td>
+</tr>
+<tr>
+<td><code>traits.txt</code></td>
+<td>dataset trait IDs of the mapped reference traits</td>
+</tr>
+<tr>
+<td><code>mapping.json</code></td>
+<td><code>rule trait_map n_ref_traits n_dataset_traits n_mapped_traits n_unmapped_traits unmapped_examples n_pairs n_pairs_mapped n_pairs_present n_variants_present n_traits_with_present_variant</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="prs">PRS<a class="headerlink" href="#prs" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>prs/&lt;ref&gt;/prs.prs.tsv.gz</code></td>
+<td><code>pair-prs</code> scores, regenie layout <code>FID IID trait…</code>, one row per genotyped sample</td>
+</tr>
+<tr>
+<td><code>prs/&lt;ref&gt;/prs.se.tsv.gz</code></td>
+<td>standard errors, same layout</td>
+</tr>
+</tbody>
+</table>
+<h2 id="match">match<a class="headerlink" href="#match" title="Permanent link">&para;</a></h2>
+<p>Under <code>match/&lt;ds&gt;/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>qpgen.weights.tsv.gz</code></td>
+<td>qpgen: <code>Trait Weight N.Obs</code></td>
+</tr>
+<tr>
+<td><code>qpgen.match.assigned.tsv.gz</code></td>
+<td>qpgen: mapped samples, <code>ID.Pheno N.Traits MatchStatus ID.self Z.self COR.self Rank.self</code>; <code>MatchStatus</code> is <code>BEST_MATCH</code>, <code>LENIENT_MATCH</code>, <code>NO_MATCH</code> or <code>NO_OBS_TRAITS</code></td>
+</tr>
+<tr>
+<td><code>qpgen.match.all.tsv.gz</code></td>
+<td>qpgen: all phenotyped samples, the same seven columns plus <code>ID/Z/COR.{1st…5th}</code>; here <code>MatchStatus</code> is the detailed status (<code>SELF_BEST</code>, <code>SELF_LENIENT</code>, <code>SINGLE_NEW_BEST</code>, <code>MULTI_NEW_BEST</code>, <code>UNCLEAR</code>, <code>NO_SELF</code>, <code>NO_OBS_TRAITS</code>) that anqchor uses</td>
+</tr>
+<tr>
+<td><code>qpgen.params.json</code></td>
+<td><code>argv qpgen dataset reference mahalanobis lambda_config lambda_mode (independent/auto/fallback/fixed) lambda_used rint use_cov z_threshold z_diff min_weight n_traits_used n_trait_map_rows n_dropped_* n_prs_samples n_samples_pheno n_samples_mapped n_samples_mapped_dataset n_sample_map_rows_dropped trait_tsv_used sample_tsv_used warnings log_excerpt seconds</code></td>
+</tr>
+<tr>
+<td><code>trait_map.used.tsv</code></td>
+<td>trait map given to qpgen, no header</td>
+</tr>
+<tr>
+<td><code>samples.tsv</code></td>
+<td>one row per phenotyped sample, see below</td>
+</tr>
+<tr>
+<td><code>swaps.tsv</code></td>
+<td>samples whose best match is another individual: <code>kind (reciprocal/reciprocal-weak/one-way) pheno_id geno_id_assigned group best_id z_best z_self rank_self partner_pheno_id partner_geno_id_assigned partner_group partner_best_id</code></td>
+</tr>
+<tr>
+<td><code>candidates.tsv</code></td>
+<td>rescue candidates (unmapped samples with a clear best match that is not another sample's confirmed match): <code>pheno_id candidate_geno_id z_best second_id z_second z_gap n_traits candidate_assigned_to</code></td>
+</tr>
+<tr>
+<td><code>duplicates.tsv</code></td>
+<td>samples that match two genotype IDs about equally (rule in <a href="../../pipelines/match/#status-rules">match</a>): <code>pheno_id geno_id_assigned group geno_id_1 z_1 geno_id_2 z_2 z_3 assigned_in_pair</code></td>
+</tr>
+<tr>
+<td><code>related.tsv</code></td>
+<td>possible relatives (a block of two or more close candidates; samples in <code>duplicates.tsv</code> left out): <code>pheno_id geno_id_assigned group n_close close_ids close_z assigned_in_close</code></td>
+</tr>
+<tr>
+<td><code>weights.tsv</code></td>
+<td><code>trait ref_trait weight n_obs weight_le0</code></td>
+</tr>
+<tr>
+<td><code>summary.json</code></td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<p><code>samples.tsv</code>: <code>pheno_id geno_id_assigned qpgen_status group z_self cor_self rank_self n_traits
+best_id z_best cor_best second_id z_second z_gap proposed_geno_id note id_1…id_5 z_1…z_5</code>
+(meanings in <a href="../../pipelines/match/#outputs">match</a>).</p>
+<p>Also <code>report/match.html</code> after <code>match report</code> or <code>match all</code>.</p>
+<p><code>summary.json</code> keys: <code>pipeline dataset omics reference verdict verdict_status (good/warning/critical)
+status_counts group_counts n_pheno n_mapped n_unmapped n_scored n_not_scored n_fail
+n_fail_two_ids n_reciprocal_swaps n_rescue_candidates n_duplicates n_related n_status_disagreements failing (list of failing
+samples) n_prs_samples n_traits_used n_traits_weight_le0 weights (min q05 q25 median mean q75
+q95 max) mahalanobis lambda_mode lambda_used rint use_cov z_threshold z_diff
+trait_tsv_used sample_tsv_used qpgen_argv qpgen_log_excerpt dataset_counts warnings</code> (<code>warnings</code> includes
+the number of samples not scored for lack of covariates).</p>
+<h2 id="cis">cis run<a class="headerlink" href="#cis" title="Permanent link">&para;</a></h2>
+<p>Under <code>cis/&lt;ds&gt;/</code>. A flags-only run has one strategy, <code>default</code> (so <code>&lt;s&gt;</code> = <code>default</code>), and
+its rows are labelled with the <strong>run label</strong>, the name of the run directory (<code>run</code> and
+<code>label</code> columns). A configuration file listing several strategies labels them by strategy
+name. A run tests one phenotype transform: as given, or RINT with <code>--rint</code>
+(<code>pipelines.cis.rint</code>).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>strategies/&lt;s&gt;/cov.regenie.tsv.gz</code></td>
+<td>the run's covariates, regenie layout, categorical covariates as text levels (absent without covariates)</td>
+</tr>
+<tr>
+<td><code>strategies/&lt;s&gt;/pheno.regenie.tsv.gz</code></td>
+<td>strategy phenotypes (only with a <code>pheno</code> override in a config file)</td>
+</tr>
+<tr>
+<td><code>strategies/&lt;s&gt;/strategy.json</code></td>
+<td><code>pipeline dataset strategy cov_source cov_columns n_cov [cat_cov_names cov_include cov_empty cov_file cov_encoding] pheno</code>; <code>cov_columns</code> are the covariate names in the file, <code>n_cov</code> counts the numeric columns after encoding (degrees of freedom), <code>cat_cov_names</code> the categorical covariates passed to qpgen as <code>--cat-cov-names</code> (absent without covariates)</td>
+</tr>
+<tr>
+<td><code>strategies/&lt;s&gt;/pair_assoc.tsv.gz</code></td>
+<td><code>pair-assoc</code> output (pair engine): <code>TRAIT CHROM GENPOS ID ALLELE0 ALLELE1 A1FREQ N N_RR N_RA N_AA INFO BETA SE TSTAT LOG10P</code>, plus <code>BETA_RINT SE_RINT TSTAT_RINT LOG10P_RINT</code> with <code>--rint</code></td>
+</tr>
+<tr>
+<td><code>strategies/&lt;s&gt;/rect_assoc.&lt;t&gt;.tsv.gz</code></td>
+<td><code>rect-assoc</code> output (rect engine); <code>&lt;t&gt;</code> = <code>raw</code>, or <code>rint</code> with <code>--rint</code></td>
+</tr>
+<tr>
+<td><code>pairs.long.tsv.gz</code></td>
+<td>one row per mapped pair, see below</td>
+</tr>
+<tr>
+<td><code>strategies.tsv</code></td>
+<td>one row per run, see below</td>
+</tr>
+<tr>
+<td><code>traits.tsv</code></td>
+<td><code>trait ref_trait n_pairs n_variant_absent</code>, per run label: <code>best_log10p:&lt;run&gt;</code>, <code>level:&lt;run&gt;</code> (strongest level reached, in <code>level_order</code>), then <code>delta_log10p:&lt;run&gt;</code> (vs the first run; only when there is more than one), and <code>best_run</code></td>
+</tr>
+<tr>
+<td><code>power_curve.tsv</code></td>
+<td><code>run threshold_log10p n_tested n_replicated frac_replicated</code> (sign-concordant with p &lt; 10^−threshold, as the levels; thresholds 0, 0.5, 1, …)</td>
+</tr>
+<tr>
+<td><code>summary.json</code></td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<p>Also <code>report/cis.html</code> after <code>cis report</code> or <code>cis all</code>.</p>
+<p><code>pairs.long.tsv.gz</code>, one row per (run, mapped pair):</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>run</code></td>
+<td>the run label</td>
+</tr>
+<tr>
+<td><code>trait</code>, <code>ref_trait</code>, <code>variant</code></td>
+<td>dataset trait ID, reference trait ID, CPRA</td>
+</tr>
+<tr>
+<td><code>beta_ref</code>, <code>se_ref</code></td>
+<td>reference effect (ALT allele) and standard error</td>
+</tr>
+<tr>
+<td><code>z_ref</code></td>
+<td>reference z-score: <code>beta_ref / se_ref</code>, or, without <code>se_ref</code>, the signed normal quantile of <code>pval_ref</code></td>
+</tr>
+<tr>
+<td><code>pval_ref</code>, <code>log10p_ref</code></td>
+<td>the reference's <code>pval</code> column (or the column named by <code>columns.pval</code>) and its −log10, read from the text so that p-values below the double range (<code>1e-400</code>) keep their size; without a usable p-value, <code>log10p_ref</code> is the two-sided normal p-value of <code>z_ref</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>tested</code>, <code>variant_absent</code>, <code>not_tested</code> (no association row, or no finite statistic)</td>
+</tr>
+<tr>
+<td><code>a1freq</code>, <code>n</code>, <code>beta</code>, <code>se</code>, <code>tstat</code>, <code>log10p</code></td>
+<td>study statistics (ALT allele, the same allele as <code>beta_ref</code>); RINT statistics with <code>--rint</code></td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>signed study z-score <code>beta / se</code> (as <code>z_ref</code>); without a usable <code>se</code>, the normal quantile of the two-sided p-value with the sign of <code>beta</code></td>
+</tr>
+<tr>
+<td><code>sign_concordant</code></td>
+<td>1/0, <code>NA</code> when not tested</td>
+</tr>
+<tr>
+<td><code>rep_&lt;level&gt;</code></td>
+<td>1/0 for each configured level (<code>sign nominal fdr bonferroni strict</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><code>strategies.tsv</code>, one row per run: <code>run label rint (1 with RINT) n_cov n_pairs n_tested
+n_variant_absent n_not_tested n_rep_&lt;level&gt;… frac_rep_&lt;level&gt;… median_log10p mean_z2
+beta_corr frac_sign_discordant pi1 bonferroni_log10p</code>; with the rect engine also
+<code>n_control_cells lambda_gc_control n_control_p_lt_1e5 n_control_cross_chrom
+lambda_gc_control_cross_chrom n_control_cross_chrom_p_lt_1e5</code>; last <code>mean_z2_common</code> (mean
+z² over the pairs tested in every row's run) and <code>rel_neff</code> = (<code>mean_z2_common</code> − 1) / (first
+run's <code>mean_z2_common</code> − 1), the effective sample size relative to the first run (1 for a
+single run).</p>
+<p><code>summary.json</code> keys: <code>schema_version dataset reference engine rint levels (rule per level)
+level_order (levels from weakest to strongest by their −log10 p cut-off for this run)
+transform_semantics (as_given, rint, engines, degrees_of_freedom) runs (label strategy rint
+n_cov per row) baseline n_ref_pairs n_pairs_mapped n_pairs_unmapped n_traits_mapped
+n_traits_unmapped n_variant_absent n_absent_variants n_absent_variants_indel
+n_absent_variants_snv absent_variant_examples unresolved_fraction unresolved_by_run
+max_unresolved_fraction recomputed_log10p per_run (the strategies.tsv numbers by label)
+ranking (labels per level, best first) recommended (run label key_level reason) warnings
+sentinels</code> (reserved, <code>null</code>).</p>
+<h2 id="cis-compare">cis compare<a class="headerlink" href="#cis-compare" title="Permanent link">&para;</a></h2>
+<p><code>anqchor cis compare RUN_DIR... --out DIR</code> writes into <code>DIR</code>. Each compared run is identified
+by its label (<code>run</code> = <code>label</code> column); a run whose configuration listed several strategies
+appears as <code>&lt;label&gt;:&lt;strategy&gt;</code>. Runs may differ in the phenotype transform. A run written
+by an anqchor version with another cis summary schema is refused with a request to re-run it.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runs.tsv</code></td>
+<td>one row per run: <code>label run_dir dataset genotypes n_geno_samples pheno n_pheno_samples n_samples_analysable cov cov_include (all, the names given, or NA) n_cov cov_columns rint reference reference_pairs engine n_pairs_mapped</code></td>
+</tr>
+<tr>
+<td><code>strategies.tsv</code></td>
+<td>the columns of a run's <code>strategies.tsv</code> (<code>run</code> = <code>label</code> = run label), plus <code>n_common_tested</code> and <code>n_rep_&lt;level&gt;_common</code> (replication counted only over the pairs tested in every compared run); <code>mean_z2_common</code> and <code>rel_neff</code> are over those pairs, relative to the first run</td>
+</tr>
+<tr>
+<td><code>pairs.long.tsv.gz</code></td>
+<td>the runs' <code>pairs.long.tsv.gz</code> stacked, <code>run</code> = run label; levels re-derived with the first run's level settings</td>
+</tr>
+<tr>
+<td><code>traits.tsv</code></td>
+<td>as in a run, one column group per run label; <code>delta_log10p</code> is relative to the first run</td>
+</tr>
+<tr>
+<td><code>power_curve.tsv</code></td>
+<td>as in a run, per run label</td>
+</tr>
+<tr>
+<td><code>summary.json</code></td>
+<td>the keys of a run's <code>summary.json</code> (without <code>rint</code>, <code>n_traits_unmapped</code>, <code>recomputed_log10p</code>, <code>unresolved_by_run</code>), plus <code>kind</code> (<code>comparison</code>), <code>runs</code> (the <code>runs.tsv</code> rows) and <code>comparability</code> (<code>same_reference</code>, <code>reference_sha256</code> per label, <code>rint</code> per label); <code>baseline</code> is the first run's label; <code>warnings</code> include each run's warnings prefixed by its label</td>
+</tr>
+<tr>
+<td><code>compare.json</code></td>
+<td>manifest: <code>kind</code> (<code>cis</code>), <code>runs</code> (<code>label run_dir dataset settings</code>), <code>labels</code>, <code>argv</code>, <code>cwd</code></td>
+</tr>
+<tr>
+<td><code>settings/&lt;label&gt;.anqchor.yaml</code></td>
+<td>a copy of each run's <code>anqchor.resolved.yaml</code></td>
+</tr>
+<tr>
+<td><code>report/cis.html</code></td>
+<td>the comparison report (unless <code>--no-report</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trans">trans<a class="headerlink" href="#trans" title="Permanent link">&para;</a></h2>
+<p>Under <code>trans/&lt;ds&gt;/</code> (<code>&lt;ds&gt;</code> is <code>dataset</code> in a flags-only run). <code>trans run</code> writes no HTML;
+<code>trans report</code> or <code>trans all</code> writes <code>report/trans.html</code>. One run per directory, labelled
+<code>run</code> (the run directory name). Summary schema 2.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>variants.txt</code></td>
+<td>rectangle variants, CPRA per line</td>
+</tr>
+<tr>
+<td><code>traits.txt</code></td>
+<td>rectangle genes (dataset IDs)</td>
+</tr>
+<tr>
+<td><code>lists.json</code></td>
+<td><code>variants</code> {<code>source n_listed n_invalid n_renamed_chrom n_off_genome n_kept</code>}, <code>traits</code> {<code>source trait_chroms n_missing_from_dataset allowed_chroms n_candidates n_kept n_dropped_off_chrom n_dropped_no_locus examples_*</code>}</td>
+</tr>
+<tr>
+<td><code>strategies/&lt;s&gt;/cov.regenie.tsv.gz</code>, <code>strategy.json</code></td>
+<td>the run's covariates (<code>&lt;s&gt;</code> is <code>default</code> in a flags-only run)</td>
+</tr>
+<tr>
+<td><code>strategies/&lt;s&gt;/rect_assoc.&lt;t&gt;.tsv.gz</code></td>
+<td><code>rect-assoc</code> output (<code>&lt;t&gt;</code> = <code>raw</code>, or <code>rint</code> with <code>--rint</code>): <code>#CHROM GENPOS ID ALLELE0 ALLELE1 A1FREQ N N_RR N_RA N_AA TEST</code> then <code>BETA.T SE.T TSTAT.T LOG10P.T</code> per gene</td>
+</tr>
+<tr>
+<td><code>reference_pairs.tsv</code></td>
+<td>one row per reference pair: <code>run trait variant ref_trait pair_class (cis/trans/no_locus) trans_kind (cross_chrom/same_chrom_distal) chrom pos trait_chrom trait_start distance beta_ref se_ref pval_ref status (tested/variant_absent/not_in_rectangle/not_tested) variant_tested a1freq n beta se z log10p sign_concordant rep_sign rep_nominal (p &lt; 0.05) rep_strict (p &lt; 1e-5)</code></td>
+</tr>
+<tr>
+<td><code>hotspots.tsv</code></td>
+<td>one row per bin with a tested variant, in genome order: <code>chrom bin_start bin_end n_variants n_genes_&lt;threshold&gt;… top_trait top_variant top_log10p</code>; <code>&lt;threshold&gt;</code> is <code>p1e-4 p1e-5 p1e-6 p5e-8 p1e-8 p1e-10</code>, the configured levels (e.g. <code>p0.001</code>) and <code>bonferroni</code>; the top cell is the strongest trans cell of the bin among genes not in cis with it (NA without one at the loosest threshold)</td>
+</tr>
+<tr>
+<td><code>hotspot_genes.tsv</code></td>
+<td>one row per bin and gene with a trans cell below the loosest grid threshold (genes in cis with the bin excluded): <code>chrom bin_start bin_end trait trait_chrom trait_start variant beta se log10p</code> (the strongest variant of the bin for that gene)</td>
+</tr>
+<tr>
+<td><code>qq.tsv</code></td>
+<td>the cross-chromosome cells used for inflation, at most ~2,000 points (the 250 strongest, then log-spaced ranks): <code>n_cells rank expected_log10p observed_log10p band_lo_log10p band_hi_log10p</code> (95% range of the order statistic, Beta(rank, n − rank + 1))</td>
+</tr>
+<tr>
+<td><code>variants.tsv</code></td>
+<td>one row per tested variant: <code>variant chrom pos bin_start a1freq n n_cis n_cross_chrom n_same_chrom_distal n_sig_trans (p &lt; nominal) max_log10p_trans top_trans_trait max_log10p_cis top_cis_trait excluded_from_calibration</code></td>
+</tr>
+<tr>
+<td><code>pairs.sig.tsv.gz</code></td>
+<td>every cell with p &lt; <code>levels.nominal</code> (any class), strongest first, at most <code>max_sig_rows</code>: <code>variant chrom pos trait trait_chrom trait_start cell_class (cis/cross_chrom/same_chrom_distal/no_locus) reference_pair distance a1freq n beta se log10p</code></td>
+</tr>
+<tr>
+<td><code>summary.json</code></td>
+<td>see below</td>
+</tr>
+</tbody>
+</table>
+<p><code>summary.json</code> keys: <code>schema_version dataset reference run strategy rint n_cov cov_source
+cov_columns n_variants n_traits (listed) n_variants_tested n_traits_tested n_samples n_cells
+n_cells_trans cells (cis cross_chrom same_chrom_distal no_locus) variants traits trait_chroms
+variant_selection trait_selection known_pairs n_reference_pairs</code>; <code>replication</code>: <code>levels
+(nominal 0.05, strict 1e-5)</code> and per class <code>cis</code>, <code>trans</code>, <code>no_locus</code>: <code>n_pairs n_tested
+n_rep_sign n_rep_nominal n_rep_strict median_log10p</code> (<code>trans</code> also <code>n_pairs_cross_chrom
+n_pairs_same_chrom_distal</code>); <code>hotspots</code>: <code>bin_bp n_bins thresholds (key label alpha log10p
+roles, loosest first) k counts (thresholds × k: bins with at least k genes) default (threshold
+k n_hotspots) bonferroni_p</code>; <code>inflation</code>: <code>n_cells n_cells_excluded n_reference_trans_pairs
+n_variants_excluded n_genes_excluded exclusion_window_bp median_log10p lambda_gc counts (alpha
+label observed expected at p &lt; 1e-3 and 1e-5)</code>; <code>n_sig_cells sig_rows_written params
+definitions warnings memory_bound seconds</code>. Definitions: <a href="../../pipelines/trans/#definitions">trans</a>.</p>
+<h2 id="trans-compare">trans compare<a class="headerlink" href="#trans-compare" title="Permanent link">&para;</a></h2>
+<p><code>anqchor trans compare RUN_DIR... --out DIR</code> writes into <code>DIR</code>. Each compared run is
+identified by its label (the run directory name or <code>--label</code>; <code>&lt;label&gt;:&lt;ds&gt;</code> for a run with
+several datasets). A run written by an anqchor version with another trans summary schema is
+refused with a request to re-run it. Summary schema 2.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runs.tsv</code></td>
+<td>one row per run: <code>label run_dir dataset genotypes n_geno_samples pheno n_samples cov cov_include (all, the names given, or NA) n_cov cov_columns rint reference reference_pairs</code>; per class <code>&lt;c&gt;</code> = <code>cis</code>, <code>trans</code>: <code>&lt;c&gt;_n_pairs &lt;c&gt;_n_tested &lt;c&gt;_n_rep_sign &lt;c&gt;_n_rep_nominal (p &lt; 0.05) &lt;c&gt;_n_rep_strict (p &lt; 1e-5)</code>, and over the reference pairs tested in every run <code>&lt;c&gt;_n_common &lt;c&gt;_n_rep_sign_common &lt;c&gt;_n_rep_nominal_common &lt;c&gt;_n_rep_strict_common</code>; then <code>n_variants_tested n_traits_tested n_cells n_cells_cis n_cells_cross_chrom n_cells_same_chrom_distal n_cells_trans cis_window_bp lambda_gc n_inflation_cells n_inflation_cells_excluded observed_p1e-3 expected_p1e-3 observed_p1e-5 expected_p1e-5 hotspot_bin_bp n_bins bonferroni_p hotspot_threshold hotspot_min_genes n_hotspots n_hotspots_shared</code> (<code>n_hotspots</code>: the hotspot count at the run's own opening threshold and minimum; <code>n_hotspots_shared</code>: at the first run's, the same setting for every run, empty when a run's grid lacks it)</td>
+</tr>
+<tr>
+<td><code>hotspot_grid.tsv</code></td>
+<td>one row per run, threshold and minimum genes: <code>run threshold (key, e.g. p1e-5, bonferroni) label alpha log10p k n_hotspots</code></td>
+</tr>
+<tr>
+<td><code>hotspots.tsv</code></td>
+<td>the runs' <code>hotspots.tsv</code> stacked: <code>run</code> then the run's columns (<code>n_genes_&lt;threshold&gt;</code> missing in a run is <code>NA</code>)</td>
+</tr>
+<tr>
+<td><code>hotspot_genes.tsv</code></td>
+<td>the runs' <code>hotspot_genes.tsv</code> stacked, <code>run</code> first</td>
+</tr>
+<tr>
+<td><code>qq.tsv</code></td>
+<td>the runs' <code>qq.tsv</code> stacked, <code>run</code> first</td>
+</tr>
+<tr>
+<td><code>reference_pairs.tsv</code></td>
+<td>the runs' <code>reference_pairs.tsv</code> stacked (<code>run</code> = label), plus <code>tested_in_all</code> (1 when the pair, matched by <code>ref_trait</code> and <code>variant</code>, was tested in every run)</td>
+</tr>
+<tr>
+<td><code>summary.json</code></td>
+<td><code>schema_version kind (comparison) pipeline (trans) dataset (comparison) labels reference runs (the input columns of runs.tsv) replication_levels n_common_pairs (cis, trans) thresholds (key label alpha log10p of every run's grid, loosest first) comparability (same_genotype_samples same_reference same_rectangle same_cells same_samples (same number and same phenotype samples) same_cis_window same_bin_width reference_sha256 rectangle_sha256 n_samples rint, per label where not a flag) per_run (per label: run dataset rint n_cov n_samples n_variants n_traits n_variants_tested n_traits_tested n_cells n_cells_trans cells n_reference_pairs replication hotspots inflation params warnings, as in a run's summary.json) definitions warnings</code> (comparability warnings, then each run's warnings prefixed by its label)</td>
+</tr>
+<tr>
+<td><code>compare.json</code></td>
+<td>manifest: <code>kind</code> (<code>trans</code>), <code>runs</code> (<code>label run_dir dataset settings</code>), <code>labels</code>, <code>argv</code>, <code>cwd</code></td>
+</tr>
+<tr>
+<td><code>settings/&lt;label&gt;.anqchor.yaml</code></td>
+<td>a copy of each run's <code>anqchor.resolved.yaml</code></td>
+</tr>
+<tr>
+<td><code>report/trans.html</code></td>
+<td>the comparison report (unless <code>--no-report</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="report">report<a class="headerlink" href="#report" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>report/match.html</code></td>
+<td>written by <code>match report</code> or <code>match all</code></td>
+</tr>
+<tr>
+<td><code>report/cis.html</code></td>
+<td>written by <code>cis report</code> or <code>cis all</code> in a run directory, and by <code>cis compare</code> (or <code>cis report</code>) in a comparison directory</td>
+</tr>
+<tr>
+<td><code>report/trans.html</code></td>
+<td>written by <code>trans report</code> or <code>trans all</code> in a run directory, and by <code>trans compare</code> (or <code>trans report</code>) in a comparison directory</td>
+</tr>
+<tr>
+<td><code>report/index.html</code></td>
+<td>only from the top-level <code>anqchor run</code> with more than one pipeline: one tile per pipeline and dataset, with links</td>
+</tr>
+</tbody>
+</table>
+<p>Reports are self-contained interactive pages (plotly; every chart has a table view and TSV
+download); with the default <code>--plotlyjs embed</code> the example reports are 5-10 MB. With
+<code>--plotlyjs cdn</code> and no network, each chart area shows a notice suggesting
+<code>--plotlyjs embed</code>. Reports are rendered only from the summaries above, never from qpgen output.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Hyun Min Kang and contributors. Apache-2.0.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.indexes", "navigation.top", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
