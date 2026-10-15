@@ -1,4 +1,4 @@
-# anqchor
+# anQChor
 
 **Genetically anchored quality control for large-scale multi-omics xQTL analysis.**
 
